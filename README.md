@@ -1,16 +1,23 @@
-# chayxana
+# Chayxana
 
-A new Flutter project.
+This is Chayxana application
 
-## Getting Started
+## Resource:
 
-This project is a starting point for a Flutter application.
+- [Design: Figma](https://www.figma.com/file/kO7pdfbuKIt9ZWrQn7qU0F/Chayxana-App?node-id=224%3A2276)
+- [Task management: Trello](https://trello.com/b/VjSa1M3X/chayxana)
+- [Documentation: Google word](https://docs.google.com/document/d/1UrpqGdCRL0NBbP_IkApRT3oQZA_OLReSi6SpeOJl8Z4/edit)
 
-A few resources to get you started if this is your first Flutter project:
+### Project structure
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- lib
+    - pages
+        - page
+        - controller
+    - services
+        - locals
+    - models
+    - views
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
