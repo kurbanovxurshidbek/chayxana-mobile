@@ -12,6 +12,13 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
+  get: ^4.6.1
+  get_storage: ^2.0.3
+
+#  dio
+#  google_maps_flutter
+#  cached_network_image
+#  geolocator
 
 dev_dependencies:
   flutter_test:

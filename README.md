@@ -18,6 +18,11 @@ This is Chayxana application
         - locals
     - models
     - views
+    
+#### git command:
+    1. pull
+    2. commit
+    3. push
 
 
 
