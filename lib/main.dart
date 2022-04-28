@@ -1,5 +1,6 @@
 import 'package:chayxana/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'services/init_service.dart';
 import 'services/lang_service.dart';
@@ -8,7 +9,12 @@ void main() async{
   await InitService.init();
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(const MyApp());
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
