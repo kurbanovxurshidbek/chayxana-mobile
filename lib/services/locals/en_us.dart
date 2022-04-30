@@ -38,4 +38,7 @@ const Map<String, String> enUS = {
   'invalid_password': "Please enter the password correctly!",
 
   // current project
+  // page intro
+  'intro_header_one': "",
+  'intro_content_one': ""
 };
