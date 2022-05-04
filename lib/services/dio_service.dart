@@ -1,8 +1,7 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:dio/dio.dart';
-import 'lang_service.dart';
 
+/// This service will change later
 class NetworkService {
   static bool isTester = true;
   static Dio dio = Dio(_baseDioOptions);
@@ -12,11 +11,6 @@ class NetworkService {
 
   /* Dio Apis */
   static String API_LIST = "/photos";
-  static String API_COLLECTIONS = "/collections";
-  static String API_SEARCH = "/search/photos";
-  static String API_ONE = "/photos/"; //{id}
-  static String API_CREATE = "/photos";
-  static String API_UPDATE = "/photos/"; //{id}
   static String API_DELETE = "/photos/"; //{id}
 
   static Map<String, String> get headers {
