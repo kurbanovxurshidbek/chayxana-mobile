@@ -1,19 +1,24 @@
 import 'package:chayxana/pages/splash/splash_page.dart';
+import 'package:chayxana/pages/test/test_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'services/init_service.dart';
 
-void main() async{
-  await InitService.init();
+Future<void> main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
+
+  await InitService.init();
+
 
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
+    // statusBarBrightness: Brightness.light,
   ));
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
     runApp(const MyApp());
-  });
+  },);
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +30,8 @@ class MyApp extends StatelessWidget {
       title: 'Chayxana Mobile',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      home: const SplashPage(),
+      // home: const SplashPage(),
+      home: const TestPage(),
       // Localization
       // translations: LangService(),
       // locale: LangService.locale,

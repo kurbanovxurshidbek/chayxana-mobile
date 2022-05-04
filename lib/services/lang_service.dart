@@ -34,7 +34,7 @@ class LangService extends Translations {
     const Locale('uz', 'UZ'),
   ];
 
-  static final locale = defLanguage(DBService.to.getData<String>(StorageKeys.language));
+  static final locale = defLanguage(DBService.to.getData<String>(StorageKeys.language) ?? LangService.langs[0]);
   
   String defaultLanguage() {
     final locale = Get.locale;
