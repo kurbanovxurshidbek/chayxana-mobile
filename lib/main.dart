@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'services/init_service.dart';
-import 'services/lang_service.dart';
 
 void main() async{
   await InitService.init();
@@ -28,9 +27,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       home: const SplashPage(),
       // Localization
-      translations: LangService(),
-      locale: LangService.locale,
-      fallbackLocale: LangService.fallbackLocale,
+      // translations: LangService(),
+      // locale: LangService.locale,
+      // fallbackLocale: LangService.fallbackLocale,
     );
   }
 }
