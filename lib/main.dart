@@ -1,5 +1,4 @@
 import 'package:chayxana/pages/splash/splash_page.dart';
-import 'package:chayxana/pages/test/test_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -30,8 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Chayxana Mobile',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      // home: const SplashPage(),
-      home: const TestPage(),
+      home: const SplashPage(),
       // Localization
       // translations: LangService(),
       // locale: LangService.locale,
