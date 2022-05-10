@@ -4,6 +4,7 @@ import 'package:chayxana/pages/main/main_page.dart';
 import 'package:chayxana/pages/main/profile/faq/faq_page.dart';
 import 'package:chayxana/pages/splash/splash_page.dart';
 import 'package:chayxana/services/init_service.dart';
+import 'package:chayxana/services/lang_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -35,9 +36,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       home: const SplashPage(),
       // Localization
-      // translations: LangService(),
-      // locale: LangService.locale,
-      // fallbackLocale: LangService.fallbackLocale,
+      translations: LangService(),
+      locale: LangService.locale,
+      fallbackLocale: LangService.fallbackLocale,
       getPages: [
         GetPage(name: SplashPage.id, page: () => const SplashPage()),
         GetPage(name: LanguagePage.id, page: () => const LanguagePage()),

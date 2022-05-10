@@ -31,21 +31,21 @@ const Map<String, String> enUS = {
   'attendance': "Attendance",
   'date': "Date",
   'try_again': "Please try again!",
-  'forget_pressed_button': "You didn't press the 'Clock Out' button yesterday, please report it to the HR supervisor!",
+  'forget_pressed_button':
+      "You didn't press the 'Clock Out' button yesterday, please report it to the HR supervisor!",
   'disable': "This button is only pressed when you come and go!",
   'check_network': "You are offline. Please, check your Internet connection!",
   'incorrectly_phone': "Please enter the number available in the system!",
   'invalid_password': "Please enter the password correctly!",
 
   // current project
-'intro_header_one': "",
-'intro_content_one': ""
+  'intro_header_one': "",
+  'intro_content_one': "",
 
 //language page
-  "str_choose_lang":"Choose language",
+  "str_choose_lang": "Choose language",
 
   //setting_detail_page
-  "str_guests":"Visitors",
-  "str_people_count":"Number of people"
-
+  "str_guests": "Visitors",
+  "str_people_count": "Number of people"
 };

@@ -1,10 +1,8 @@
 import 'package:chayxana/pages/language/language_controller.dart';
-import 'package:chayxana/pages/main/main_page.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:chayxana/services/const_service.dart';
+import 'package:chayxana/services/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../main/home/setting_detail/setting_detail_page.dart';
 
 class LanguagePage extends StatelessWidget {
   static const String id = '/lang_page';
@@ -15,90 +13,65 @@ class LanguagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(height: Get.height * .1),
           Text('str_choose_lang'.tr,
               style: const TextStyle(
                   fontSize: 24,
-                  color: Color(0xFF000000),
+                  color: AppColors.unSelectedTextColor,
                   fontWeight: FontWeight.w600)),
-          SizedBox(height: Get.height * .25),
-          GetBuilder<LanguageController>(
-            init: LanguageController(),
-            builder: (controller) {
-              Get.log(controller.initialized.toString());
-              return FadeTransition(
-                opacity: controller.animationFadeList,
-                child: SizedBox(
-                  height: Get.height * 0.15,
-                  child: CupertinoPicker(
-                    squeeze: 1,
-                    useMagnifier: true,
-                    magnification: 1,
-                    diameterRatio: 10,
-                    itemExtent: 60,
-                    onSelectedItemChanged: (index) =>
-                        controller.langChangeWithAnimation(index),
-                    // physics: const FixedExtentScrollPhysics(),
-                    children: [
-                      getLanguage(controller, 0),
-                      getLanguage(controller, 1),
-                      getLanguage(controller, 2),
-                    ],
-                    looping: true,
+          Expanded(
+            child: GetBuilder<LanguageController>(
+              init: LanguageController(),
+              builder: (controller) {
+                Get.log(controller.focusedItem.toString());
+                return Center(
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    height: controller.languages.length * 50,
+                    child: ListView.builder(
+                      controller: controller.controller,
+                      padding: const EdgeInsets.symmetric(horizontal: 70),
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: 6,
+                      itemBuilder: (context, index) {
+                        return animatedBtn(
+                          controller: controller,
+                          index: index,
+                        );
+                      },
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
-          SizedBox(height: Get.height * .385),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              MaterialButton(
-                height: 30,
-                color: Colors.green,
-                onPressed: () => Get.to(() => const SettingDetailPage()),
-                child: const Text('Setting Page')),
-              SizedBox(width: 50),
-              MaterialButton(
-                height: 30,
-                color: Colors.red,
-                onPressed: () => Get.to(() => const MainPage()),
-                child: const Text('Main Page'),
-              )
-            ],
-          ),
-
         ],
       ),
     );
   }
 
-  Widget getLanguage(LanguageController controller, int index) {
+  Widget animatedBtn(
+      {required LanguageController controller, required int index}) {
     return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: () {
-        Get.log(controller.isClosed.toString());
-        controller.changeLang(controller.languages[index]);
-      },
+      onTap: () => controller.changeLang(controller.languages[index % 3]),
       child: Container(
+        height: 50,
+        margin: EdgeInsets.zero,
         alignment: Alignment.center,
-        width: Get.width,
-        child: Text(
-          controller.languages[index],
-          textAlign: TextAlign.center,
-          style: controller.selected == index
-              ? const TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 22,
-                  color: Color(0xFF000000),
-                  fontWeight: FontWeight.w800)
-              : TextStyle(
-                  fontSize: 20,
-                  color: const Color(0xFF000000).withOpacity(0.5),
-                  fontWeight: FontWeight.w400),
+        child: Text(controller.languages[index % 3],
+            style: TextStyle(
+                fontSize: controller.focusedItem == index ? 22 : 20,
+                color: controller.focusedItem == index
+                    ? AppColors.unSelectedTextColor.withOpacity(1.0)
+                    : AppColors.unSelectedTextColor.withOpacity(0.5))),
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          border: Border.symmetric(
+              horizontal: controller.focusedItem == index
+                  ? const BorderSide(color: Colors.grey, width: 1)
+                  : BorderSide.none),
         ),
       ),
     );
