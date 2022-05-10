@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 
+import 'inter_service.dart';
+
 /// This service will change later
 class NetworkService {
   static bool isTester = true;
-  static Dio dio = Dio(_baseDioOptions);
+  static Dio dio = Dio(_baseDioOptions)..interceptors.add(DioInterceptor());
 
   static String SERVER_DEVELOPMENT = "https://api.unsplash.com";
   static String SERVER_PRODUCTION = "https://api.unsplash.com";
