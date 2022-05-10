@@ -14,6 +14,7 @@ class IntroPage extends StatelessWidget {
               backgroundColor: const Color(0xff40C244),
               body: Stack(children: [
                 PageView(
+                  controller: _controller.pageController,
                   children: [
                     pageViewForm(_controller.text1, _controller.tex2,
                         _controller.images[0]),
@@ -53,7 +54,7 @@ class IntroPage extends StatelessWidget {
                     ///### inter button
                     Container(
                       child: MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {_controller.bottomTapped(_controller.page);},
                         child: const Center(
                           child: Text(
                             "Начать",

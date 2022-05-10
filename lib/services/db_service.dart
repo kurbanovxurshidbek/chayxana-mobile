@@ -18,7 +18,7 @@ class DBService {
     await _database.write(key.name, value);
   }
 
-  T getData<T>(StorageKeys key) {
+  T? getData<T>(StorageKeys key) {
     return _database.read(key.name);
   }
 
