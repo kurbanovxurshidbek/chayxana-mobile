@@ -31,11 +31,18 @@ const Map<String, String> uzUZ = {
   'attendance': "Davomat",
   'date': "Sana",
   'try_again': "Iltimos, yana bir bor urinib ko'ring!",
-  'forget_pressed_button': "Siz kecha 'Soatni o'chirish' tugmasini bosmadingiz, iltimos bu haqida hodimlar bo'limi nazoratichisiga xabar bering!",
+  'forget_pressed_button':
+      "Siz kecha 'Soatni o'chirish' tugmasini bosmadingiz, iltimos bu haqida hodimlar bo'limi nazoratichisiga xabar bering!",
   'disable': "Bu tugma faqat ishga kelganda va ketganda bosiladi!",
   'check_network': "Siz oflaynsiz. Iltimos, internet aloqangizni tekshiring!",
   'incorrectly_phone': "Iltimos tizimda mavjud bo'lgan raqam kiriting!",
   'invalid_password': "Iltimos parolni to'g'ri kiriting!",
 
-  // current project
+// current project
+
+//language page
+  "str_choose_lang": "Tilni tanlang",
+
+//setting_detail_page
+  "str_guests_numbers": "Tashrif buyurchilar soni",
 };

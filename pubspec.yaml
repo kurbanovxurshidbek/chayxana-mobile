@@ -16,6 +16,7 @@ dependencies:
   get_storage: ^2.0.3
   flutter_svg: ^1.0.3
   dio: ^4.0.6
+  date_picker_timeline: ^1.2.3
 
 #  dio
 #  google_maps_flutter

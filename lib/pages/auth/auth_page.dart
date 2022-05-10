@@ -6,8 +6,9 @@ class AuthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      /// #Doniyor
-    );
+    return const Scaffold(
+
+        /// #Doniyor
+        );
   }
 }
