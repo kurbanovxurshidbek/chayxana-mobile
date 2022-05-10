@@ -32,8 +32,8 @@ class MainPage extends StatelessWidget {
                 left: 0,
                 right: 0,
                 child: Container(
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  margin: EdgeInsets.symmetric(
+                      horizontal: Get.width * 0.15, vertical: Get.height * .03),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(36),
                     color: AppColors.activeColor,
@@ -50,10 +50,7 @@ class MainPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: controller.menus
-                        .map((menu) => bottomButton(
-                            menu,
-                            () => controller.openPage(menu),
-                            controller.selectedMenu == menu))
+                        .map((menu) => bottomButton(menu, controller))
                         .toList(),
                   ),
                 ),
@@ -65,18 +62,26 @@ class MainPage extends StatelessWidget {
     );
   }
 
-  Widget bottomButton(String name, Function() onClick, bool isSelected) {
-    Get.log(isSelected.toString());
+  Widget bottomButton(String name, MainController controller) {
     return MaterialButton(
+      disabledColor: AppColors.deActiveColor,
       minWidth: 50,
       height: 50,
       padding: const EdgeInsets.all(2),
       elevation: 0,
-      splashColor: Colors.indigo,
+      splashColor: AppColors.activeColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-      color: isSelected ? AppColors.mainColor : AppColors.activeColor,
-      child: openSvg(name, width: 26, height: 26, isSelected: isSelected),
-      onPressed: onClick,
+      color: controller.selectedMenu == name
+          ? AppColors.mainColor
+          : AppColors.activeColor,
+      child: openSvg(name,
+          width: 26,
+          height: 26,
+          isGradient: false,
+          color: controller.selectedMenu == name
+              ? AppColors.activeColor
+              : AppColors.deActiveColor),
+      onPressed: () => controller.openPage(name),
     );
   }
 }
