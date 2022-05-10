@@ -38,10 +38,14 @@ const Map<String, String> enUS = {
   'invalid_password': "Please enter the password correctly!",
 
   // current project
-  //language page
+'intro_header_one': "",
+'intro_content_one': ""
+
+//language page
   "str_choose_lang":"Choose language",
 
   //setting_detail_page
   "str_guests":"Visitors",
   "str_people_count":"Number of people"
+
 };

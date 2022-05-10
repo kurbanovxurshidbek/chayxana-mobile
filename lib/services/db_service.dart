@@ -22,7 +22,7 @@ class DBService {
     return _database.read(key.name);
   }
 
-  Future<void> deleteToken(StorageKeys key) async {
+  Future<void> deleteData(StorageKeys key) async {
     await _database.remove(key.name);
   }
 }
