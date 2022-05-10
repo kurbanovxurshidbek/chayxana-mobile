@@ -12,11 +12,10 @@ class SplashController extends GetxController {
   }
 
   void openNextPage() {
-    Get.log('66', isError: false);
     Timer(const Duration(seconds: 2), () {
       Get.off(() => firstVisit() ? const LanguagePage() : const MainPage());
 
-      Get.log('666', isError: true);
+
     });
   }
 
