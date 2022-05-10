@@ -27,9 +27,12 @@ dependencies:
   # use google map
   google_maps_flutter: ^2.1.4
 
+  # use verification
+  pin_code_fields: ^7.3.0
 #  dio
 #  google_maps_flutter
-#  cached_network_image
+  # use download image from network
+  cached_network_image: ^3.2.0
 #  geolocator
 
 dev_dependencies:
