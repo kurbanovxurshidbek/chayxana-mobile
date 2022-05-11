@@ -38,14 +38,17 @@ const Map<String, String> enUS = {
   'incorrectly_phone': "Please enter the number available in the system!",
   'invalid_password': "Please enter the password correctly!",
 
-  // current project
-  'intro_header_one': "",
-  'intro_content_one': "",
+
 
 //language page
   "str_choose_lang": "Choose language",
 
   //setting_detail_page
   "str_guests": "Visitors",
-  "str_people_count": "Number of people"
+  "str_people_count": "Number of people",
+  "str_choose_date":"Choose date",
+  "str_choose_room":"Choose room",
+  "str_choose_time":"Select the arrival time",
+  "str_clear":"Clear",
+  "str_next":"Next"
 };

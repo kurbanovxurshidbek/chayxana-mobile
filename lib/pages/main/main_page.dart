@@ -64,7 +64,7 @@ class MainPage extends StatelessWidget {
 
   Widget bottomButton(String name, MainController controller) {
     return MaterialButton(
-      disabledColor: AppColors.deActiveColor,
+      disabledColor: AppColors.borderColor,
       minWidth: 50,
       height: 50,
       padding: const EdgeInsets.all(2),
@@ -80,7 +80,7 @@ class MainPage extends StatelessWidget {
           isGradient: false,
           color: controller.selectedMenu == name
               ? AppColors.activeColor
-              : AppColors.deActiveColor),
+              : AppColors.borderColor),
       onPressed: () => controller.openPage(name),
     );
   }

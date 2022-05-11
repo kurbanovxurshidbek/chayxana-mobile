@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 
 class SettingDetailController extends GetxController {
-  int selected = 0;
+  int selectedDate = 0;
+  int? selectedRoom;
+  int? selectedHour;
 
   List<int> maxNumberPeople = [10, 12, 15, 18, 20];
   List<int> minNumberPeople = [6, 8, 10, 12, 15];
@@ -21,6 +23,15 @@ class SettingDetailController extends GetxController {
   ];
   List<int> rooms = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
+  void goBack() => Get.back();
 
-  void goBack()=> Get.back();
+  void chooseRoom(int index) {
+    selectedRoom = index;
+    update();
+  }
+
+  void chooseHour(int index) {
+    selectedHour = index;
+    update();
+  }
 }

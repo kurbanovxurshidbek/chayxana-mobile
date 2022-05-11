@@ -44,5 +44,11 @@ const Map<String, String> uzUZ = {
   "str_choose_lang": "Tilni tanlang",
 
 //setting_detail_page
-  "str_guests_numbers": "Tashrif buyurchilar soni",
+  "str_guests": "Tashrif buyurchilar soni",
+  "str_people_count": "Odamlar soni",
+  "str_choose_date":"Sanani tanlang",
+  "str_choose_room":"Xonani tanlang",
+  "str_choose_time":"Kelish vaqtini tanlang",
+  "str_clear":"Tozalash",
+  "str_next":"Keyingisi"
 };

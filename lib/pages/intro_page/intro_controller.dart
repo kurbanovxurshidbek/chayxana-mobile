@@ -23,7 +23,7 @@ class IntroController extends GetxController{
 
     } else {
       pageController.animateToPage(
-          index + 1, duration: Duration(milliseconds: 500), curve: Curves.ease);
+          index + 1, duration: const Duration(milliseconds: 500), curve: Curves.ease);
     }
   }
 }
