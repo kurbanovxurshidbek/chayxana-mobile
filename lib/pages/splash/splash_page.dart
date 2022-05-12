@@ -23,11 +23,11 @@ class SplashPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  openSvg('logo', width: Get.width * 0.39),
+                  OpenSVG(path: 'logo', width: Get.width * 0.39),
                   SizedBox(
                       height: Get.height * .06,
                       width: Get.width * .39,
-                      child: openSvg('splash_logo2', height: 52, width: 162))
+                      child: const OpenSVG(path: 'splash_logo2', height: 52, width: 162))
                 ],
               ),
             ),

@@ -74,7 +74,7 @@ class MainPage extends StatelessWidget {
       color: controller.selectedMenu == name
           ? AppColors.mainColor
           : AppColors.activeColor,
-      child: openSvg(name,
+      child: OpenSVG( path: name,
           width: 26,
           height: 26,
           isGradient: false,
