@@ -1,9 +1,10 @@
+import 'package:chayxana/services/const_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MainController extends SuperController implements GetxController {
   PageController pageController = PageController();
-  final List<String> menus = ['home', 'history', 'person'];
+  final List<String> menus = [AppAssets.homeIC, AppAssets.historyIC, AppAssets.personIC];
 
   int currentPage = 0;
 

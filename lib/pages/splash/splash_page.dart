@@ -1,4 +1,5 @@
 import 'package:chayxana/pages/splash/splash_contoller.dart';
+import 'package:chayxana/services/const_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,11 +24,11 @@ class SplashPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  OpenSVG(path: 'logo', width: Get.width * 0.39),
+                  OpenSVG(path: AppAssets.logoIC, width: Get.width * 0.39),
                   SizedBox(
                       height: Get.height * .06,
                       width: Get.width * .39,
-                      child: const OpenSVG(path: 'splash_logo2', height: 52, width: 162))
+                      child: const OpenSVG(path: AppAssets.splashLogo2IC, height: 52, width: 162))
                 ],
               ),
             ),

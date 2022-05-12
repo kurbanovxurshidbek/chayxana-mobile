@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 
 
 class OpenSVG extends StatelessWidget {
-  final String? path;
+  final String path;
   final Color? color;
   final bool isGradient;
   final double width;
@@ -24,7 +24,7 @@ class OpenSVG extends StatelessWidget {
     return isGradient
         ? LinearGradientMask(
             child: SvgPicture.asset(
-              'assets/icons/ic_$path.svg',
+              path,
               semanticsLabel: path,
               width: width,
               cacheColorFilter: true,
@@ -32,7 +32,7 @@ class OpenSVG extends StatelessWidget {
             ),
           )
         : SvgPicture.asset(
-            'assets/icons/ic_$path.svg',
+            path,
             color: color,
             semanticsLabel: path,
             width: width,
