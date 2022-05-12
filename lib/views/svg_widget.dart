@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+/// TODO Widget function => Stateless Widget
 Widget openSvg(String path,
     {Color? color,
     bool isGradient = true,
     double width = 150,
     double height = 162.0}) {
-  Get.log(color.toString());
+//   Get.log(color.toString());
   return isGradient
       ? LinearGradientMask(
           child: SvgPicture.asset(
