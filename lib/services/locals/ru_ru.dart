@@ -38,4 +38,6 @@ const Map<String, String> ruRU = {
   'invalid_password': "Пожалуйста, введите пароль правильно!",
 
   // current project
+  'intro_header_one': "Боле 2 00 занятий с акциями и бонусами",
+  'intro_content_one': "Получайте подарки, скидки и боеусны"
 };

@@ -39,6 +39,6 @@ const Map<String, String> enUS = {
 
   // current project
   // page intro
-  'intro_header_one': "",
+  'intro_header_one': "More than 200 classes with promotions and bonuses",
   'intro_content_one': ""
 };
