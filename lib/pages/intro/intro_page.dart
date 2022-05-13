@@ -17,11 +17,11 @@ class IntroPage extends StatelessWidget {
                 PageView(
                   controller: _controller.pageController,
                   children: [
-                    page_view_form("intro_header_one".tr, "intro_content_one".tr,
+                    pageViewForm("intro_header_one".tr, "intro_content_one".tr,
                         _controller.images[0]),
-                    page_view_form('intro_header_one'.tr,  "intro_content_one".tr,
+                    pageViewForm('intro_header_one'.tr,  "intro_content_one".tr,
                         _controller.images[1]),
-                    page_view_form('intro_header_one'.tr,  "intro_content_one".tr,
+                    pageViewForm('intro_header_one'.tr,  "intro_content_one".tr,
                         _controller.images[2]),
                   ],
                   onPageChanged: (index) {
@@ -37,15 +37,15 @@ class IntroPage extends StatelessWidget {
                   child: Column(children: [
                     Row(
                       children: [
-                        smooth_indicator(_controller,0),
+                        smoothIndicator(_controller,0),
                         const SizedBox(
                           width: 14,
                         ),
-                        smooth_indicator(_controller,1),
+                        smoothIndicator(_controller,1),
                         const SizedBox(
                           width: 14,
                         ),
-                        smooth_indicator(_controller,2),
+                        smoothIndicator(_controller,2),
                       ],
                     ),
                     SizedBox(
@@ -78,7 +78,7 @@ class IntroPage extends StatelessWidget {
         });
   }
 
-  CircleAvatar smooth_indicator(IntroController _controller, index) {
+  CircleAvatar smoothIndicator(IntroController _controller, index) {
     return CircleAvatar(
       backgroundColor: _controller.page == index
           ? Colors.black
@@ -87,7 +87,7 @@ class IntroPage extends StatelessWidget {
     );
   }
 
-  Center page_view_form(String text1, String text2, String image) {
+  Center pageViewForm(String text1, String text2, String image) {
     return Center(
       child: Column(children: [
         SizedBox(

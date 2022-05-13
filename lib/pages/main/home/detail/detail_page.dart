@@ -29,7 +29,7 @@ class DetailPage extends StatelessWidget {
                                     top: _controller.marginOfContainer2),
                                 height: _controller.hight,
                                 width: _controller.widthofContainer,
-                                duration: Duration(milliseconds: 100),
+                                duration: const Duration(milliseconds: 100),
 
                                 ///### Image Url
                                 child: ClipRRect(
@@ -138,7 +138,7 @@ class DetailPage extends StatelessWidget {
                                   ],
                                 ),
                               )
-                                  : SizedBox(),
+                                  : const SizedBox(),
                             )
                           ],
                         ),
@@ -149,15 +149,15 @@ class DetailPage extends StatelessWidget {
                           ///###chayxana name and rate
                           Container(
                               width: Get.width,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0xffF5F5F5),
                               ),
-                              padding: EdgeInsets.all(15),
+                              padding: const EdgeInsets.all(15),
                               child: Row(
                                   mainAxisAlignment:
                                   MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "chayxanaName",
                                       style: TextStyle(
                                           fontSize: 20,
@@ -189,37 +189,37 @@ class DetailPage extends StatelessWidget {
                           ///### desciription
                           Container(
                               padding:
-                              EdgeInsets.only(top: 15, left: 15, right: 15),
+                              const EdgeInsets.only(top: 15, left: 15, right: 15),
                               width: Get.width,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     "Адрес",
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Ташкент",
                                     style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Юнусабадский район, Амир Темур",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
                                   Container(
@@ -230,39 +230,39 @@ class DetailPage extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
-                                  Divider(
+                                  const Divider(
                                     color: Colors.black,
                                     height: 1,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Описание",
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Ресторан в любовно отреставрированном павильоне «Шелководство» на ВДНХ работает с мая 2016 года. В заведении два зала, летом к ним добавляются две большие веранды; вокруг парк, а совсем неподалеку Зеленый театр.",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
-                                  Divider(
+                                  const Divider(
                                     color: Colors.black,
                                     height: 1,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
                                   Row(
@@ -274,7 +274,7 @@ class DetailPage extends StatelessWidget {
                                         MainAxisAlignment.start,
                                         crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                        children: [
+                                        children: const [
                                           Text(
                                             "Режим работы",
                                             style: TextStyle(
@@ -296,14 +296,14 @@ class DetailPage extends StatelessWidget {
                                         height: Get.height / 15.44,
                                         width: Get.width / 2.5,
                                         decoration: BoxDecoration(
-                                          color: Color(0xffF5F5F5),
+                                          color: const Color(0xffF5F5F5),
                                           borderRadius:
                                           BorderRadius.circular(12),
                                         ),
                                         child: Center(
                                           child: TextButton(
                                             onPressed: () {},
-                                            child: Text(
+                                            child: const Text(
                                               'Подробнее',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
@@ -315,23 +315,23 @@ class DetailPage extends StatelessWidget {
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
-                                  Divider(
+                                  const Divider(
                                     color: Colors.black,
                                     height: 1,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Информатция",
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
                                   Row(
@@ -344,17 +344,17 @@ class DetailPage extends StatelessWidget {
                                           "assets/icons/img_4.png", "Маршрут"),
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
-                                  Divider(
+                                  const Divider(
                                     color: Colors.black,
                                     height: 1,
                                   ),
                                   ///### Buttons of servise
                                   Column(
                                     children: [
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 15,
                                       ),
                                       Row(
@@ -369,7 +369,7 @@ class DetailPage extends StatelessWidget {
                                               "Маршрут"),
                                         ],
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 15,
                                       ),
                                       Row(
@@ -399,7 +399,7 @@ class DetailPage extends StatelessWidget {
       width: Get.width / 2.28,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Color(0xffF5F5F5),
+        color: const Color(0xffF5F5F5),
       ),
       child: MaterialButton(
         onPressed: () {},
@@ -413,7 +413,7 @@ class DetailPage extends StatelessWidget {
             ),
             Text(
               textOfIcon,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
               ),
             ),

@@ -13,23 +13,23 @@ class GalleryPage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         toolbarHeight: Get.height / 11.5,
-        title: Text(
+        title: const Text(
           "Фото",
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
         ),
         leading: IconButton(
           onPressed: () {},
-          icon: ImageIcon(
+          icon: const ImageIcon(
             AssetImage("assets/icons/img_9.png"),
             color: Colors.black,
           ),
         ),
       ),
       body: Container(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
@@ -37,7 +37,7 @@ class GalleryPage extends StatelessWidget {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {},
-              child: Container(
+              child: SizedBox(
                 height: Get.height / 5.4,
                 width: Get.width / 2.21,
                 child:ClipRRect(

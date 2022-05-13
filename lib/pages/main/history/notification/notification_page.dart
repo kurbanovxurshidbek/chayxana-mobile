@@ -23,7 +23,7 @@ class NotificationPage extends StatelessWidget {
               centerTitle: true,
               leading: IconButton(
                 onPressed: () {},
-                icon: ImageIcon(
+                icon: const ImageIcon(
                   AssetImage("assets/icons/img_12.png"),
                   color: Colors.black,
                 ),
@@ -32,7 +32,7 @@ class NotificationPage extends StatelessWidget {
                 height: Get.height / 20,
                 width: Get.width / 1.9,
                 decoration: BoxDecoration(
-                  color: Color(0xffE9E9E9),
+                  color: const Color(0xffE9E9E9),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
@@ -42,10 +42,10 @@ class NotificationPage extends StatelessWidget {
                       height: Get.height / 26,
                       width: Get.width / 4.5,
                       decoration: BoxDecoration(
-                        color:_controller.indexPage==0? Colors.white:Color(0xffE9E9E9),
+                        color:_controller.indexPage==0? Colors.white:const Color(0xffE9E9E9),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child:InkWell( onTap: (){_controller.changeIndex(0);},child: Center(
+                      child:InkWell( onTap: (){_controller.changeIndex(0);},child: const Center(
                         child: Text(
                           "Новости",
                           style: TextStyle(
@@ -59,10 +59,10 @@ class NotificationPage extends StatelessWidget {
                       height: Get.height / 26,
                       width: Get.width / 3.5,
                       decoration: BoxDecoration(
-                        color:_controller.indexPage==1? Colors.white:Color(0xffE9E9E9),
+                        color:_controller.indexPage==1? Colors.white:const Color(0xffE9E9E9),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child:InkWell( onTap: (){_controller.changeIndex(1);},child: Center(
+                      child:InkWell( onTap: (){_controller.changeIndex(1);},child: const Center(
                         child: Text(
                           "Сообщении",
                           style: TextStyle(
@@ -93,30 +93,30 @@ class NotificationPage extends StatelessWidget {
                   return Container(
                     height: 100,
                     width: double.infinity,
-                    margin: EdgeInsets.all(15),
+                    margin: const EdgeInsets.all(15),
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.only(left: 15),
+                          padding: const EdgeInsets.only(left: 15),
                           alignment: Alignment.centerLeft,
                           height: 40,
                           width: double.infinity,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color(0xffFCAF45),
                             borderRadius: BorderRadius.only(topLeft: Radius.circular(12),topRight: Radius.circular(12),),
                           ),
-                          child: Text("Васток",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                          child: const Text("Васток",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
                         ),
                         Container(
-                          padding: EdgeInsets.only(left: 15),
+                          padding: const EdgeInsets.only(left: 15),
                           alignment: Alignment.centerLeft,
                           height: 60,
                           width: double.infinity,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12),bottomRight: Radius.circular(12),),
                           ),
-                          child: Text("Ждем вас завтра в 19:00",style: TextStyle(fontSize: 16,),),
+                          child: const Text("Ждем вас завтра в 19:00",style: TextStyle(fontSize: 16,),),
                         )
                       ],
                     ),
@@ -130,8 +130,8 @@ class NotificationPage extends StatelessWidget {
 
   Container istoryItmesOfWidget() {
     return Container(
-        margin: EdgeInsets.only(bottom: 10),
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        margin: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,18 +139,17 @@ class NotificationPage extends StatelessWidget {
               /// Picture of Notification and buttons
               Stack(
                 children: [
-                  Container(
+                  SizedBox(
                       height: 218,
                       width: double.infinity,
 
                       ///### Image Url
                       child: ClipRRect(
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(12),
                             topLeft: Radius.circular(12)),
                         child: CachedNetworkImage(
-                          imageUrl:
-                          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+                          imageUrl: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
                           imageBuilder: (context, imageProvider) =>
                               Container(
                                 decoration: BoxDecoration(
@@ -207,10 +206,10 @@ class NotificationPage extends StatelessWidget {
               ),
               /// Chayxana Name and rate
               Container(
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 width: double.infinity,
-                color: Color(0xffE9E9E9),
-                child: Text(
+                color: const Color(0xffE9E9E9),
+                child: const Text(
                   "Васток",
                   style: TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 18),
@@ -219,14 +218,14 @@ class NotificationPage extends StatelessWidget {
               /// chayxana location and rejim
               Container(
                 width: double.infinity,
-                decoration: BoxDecoration(color: Colors.white,
+                decoration: const BoxDecoration(color: Colors.white,
                     borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12),bottomRight: Radius.circular(12), )),
-                padding:EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                padding:const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Ташкент",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 16),
@@ -234,7 +233,7 @@ class NotificationPage extends StatelessWidget {
                     SizedBox(
                       height: Get.height/89,
                     ),
-                    Text(
+                    const Text(
                       "Юнусабадский район, Амир Темур",
                       style: TextStyle(
                           fontSize: 16),
@@ -242,7 +241,7 @@ class NotificationPage extends StatelessWidget {
                     SizedBox(
                       height: Get.height/59,
                     ),
-                    Text(
+                    const Text(
                       "Режим роботы",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 16),
@@ -250,7 +249,7 @@ class NotificationPage extends StatelessWidget {
                     SizedBox(
                       height: Get.height/89,
                     ),
-                    Text(
+                    const Text(
                       "Сегодгя 10:00 - 24:00",
                       style: TextStyle(
                           fontSize: 16),

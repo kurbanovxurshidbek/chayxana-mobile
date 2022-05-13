@@ -54,7 +54,7 @@ class SmsVerificationPage extends StatelessWidget {
                       /// picode fields
                       GestureDetector(
                         onTap: () {},
-                        child: Container(
+                        child: SizedBox(
                           height: Get.height,
                           width: Get.width,
                           child: ListView(
@@ -92,7 +92,7 @@ class SmsVerificationPage extends StatelessWidget {
                                           inactiveColor: const Color(0xffF7F7F7),
                                           inactiveFillColor: const Color(0xffF7F7F7)),
                                       cursorColor: Colors.black,
-                                      animationDuration: Duration(milliseconds: 300),
+                                      animationDuration: const Duration(milliseconds: 300),
                                       enableActiveFill: true,
                                       controller: _controller.textEditingController,
                                       keyboardType: TextInputType.number,
@@ -104,13 +104,12 @@ class SmsVerificationPage extends StatelessWidget {
                                         )
                                       ],
                                       onCompleted: (v) {
-                                        print("Completed");
+
                                       },
                                       onChanged: (value) {
-                                        print(value);
+
                                       },
                                       beforeTextPaste: (text) {
-                                        print("Allowing to paste $text");
                                         //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
                                         //but you can show anything you want here, like your pop up saying wrong paste format or etc
                                         return true;
@@ -123,7 +122,7 @@ class SmsVerificationPage extends StatelessWidget {
                               /// timer calculator
                               Center(
                                 child:
-                                Text("Отправить код еще раз через ...00:${_controller.limitedTime}",style: TextStyle(fontSize:13,color: Color(0xffC8C8C8) ),),
+                                Text("Отправить код еще раз через ...00:${_controller.limitedTime}",style: const TextStyle(fontSize:13,color: Color(0xffC8C8C8) ),),
                               ),
                               SizedBox(
                                 height: Get.height / 10,
