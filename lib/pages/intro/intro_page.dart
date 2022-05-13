@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'intro_controller.dart';
 
 class IntroPage extends StatelessWidget {
@@ -18,11 +17,11 @@ class IntroPage extends StatelessWidget {
                 PageView(
                   controller: _controller.pageController,
                   children: [
-                    page_view_form(_controller.text1, _controller.tex2,
+                    page_view_form("intro_header_one".tr, "intro_content_one".tr,
                         _controller.images[0]),
-                    page_view_form(_controller.text1, _controller.tex2,
+                    page_view_form('intro_header_one'.tr,  "intro_content_one".tr,
                         _controller.images[1]),
-                    page_view_form(_controller.text1, _controller.tex2,
+                    page_view_form('intro_header_one'.tr,  "intro_content_one".tr,
                         _controller.images[2]),
                   ],
                   onPageChanged: (index) {
