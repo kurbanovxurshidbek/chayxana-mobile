@@ -1,8 +1,8 @@
 import 'package:chayxana/own/repo.dart';
 import 'package:chayxana/pages/main/home/setting_detail/setting_detail_controller.dart';
 import 'package:chayxana/services/const_service.dart';
-import 'package:chayxana/services/db_service.dart';
 import 'package:chayxana/views/choose_room.dart';
+import 'package:chayxana/views/common_views.dart';
 import 'package:chayxana/views/half_width_btn.dart';
 import 'package:chayxana/views/timeline_widget/date_time_picker.dart';
 import 'package:flutter/material.dart';
@@ -20,91 +20,25 @@ class SettingDetailPage extends StatelessWidget {
       init: SettingDetailController(),
       builder: (controller) {
         return Scaffold(
-          appBar: AppBar(
-            leading: IconButton(
-                onPressed: () => controller.goBack(),
-                icon: const Icon(
-                  Icons.arrow_back_outlined,
-                  color: AppColors.unSelectedTextColor,
-                )),
-            elevation: 0,
-            backgroundColor: AppColors.activeColor,
-            centerTitle: true,
-            title: Text(
-              getWeekday(DateTime.now().weekday) +
-                  '. ' +
-                  getMonth(DateTime.now().month) +
-                  ' ' +
-                  DateTime.now().day.toString(),
-              style: const TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 20,
-                  color: AppColors.unSelectedTextColor,
-                  fontWeight: FontWeight.w700),
-            ),
-          ),
+          appBar: appbar(controller.nowString(), () => controller.goBack()),
           body: SizedBox(
             width: Get.width,
             child: ListView(
               physics: const BouncingScrollPhysics(),
               children: [
-                Container(
-                  padding: const EdgeInsets.only(left: 20),
-                  height: 70,
-                  decoration: BoxDecoration(
-                      border: Border.symmetric(
-                          horizontal: BorderSide(
-                              color: AppColors.borderColor.withOpacity(0.5),
-                              width: 1))),
-                  child: Row(
-                    children: [
-                      Text(
-                        "str_guests".tr,
-                        textAlign: TextAlign.start,
-                        style: const TextStyle(
-                            fontFamily: "Poppins",
-                            fontSize: 18,
-                            color: AppColors.unSelectedTextColor,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      const Spacer(),
-                      Container(
-                        width: Get.width * .47,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12.0),
-                            border: Border.all(
-                                color: AppColors.borderColor.withOpacity(0.5),
-                                width: 1)),
-                        margin: const EdgeInsets.symmetric(vertical: 11),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 9, horizontal: 16),
-                        child: Row(
-                          children: [
-                            Flexible(
-                              child: Text(
-                                "People count".tr,
-                                style: const TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 20,
-                                    color: AppColors.unSelectedTextColor,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                            PopItem1(controller: controller)
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 25),
-                    ],
-                  ),
+                DropDownItems(
+                  title: "str_guests",
+                  itemName: "People count",
+                  selectedItem: () {},
+                  items: controller.maxNumberPeople,
+                  otherItem: controller.minNumberPeople,
                 ),
-
+                customDivider(),
                 // timeLine
                 Container(
-                  height: Get.height * .22,
-                  padding: const EdgeInsets.all(10),
+                  height: Get.height * .275,
                   margin:
-                  const EdgeInsets.symmetric(horizontal: 15, vertical: 16),
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 16),
                   decoration: BoxDecoration(
                       border: Border.all(
                           color: AppColors.borderColor.withOpacity(0.5),
@@ -114,22 +48,14 @@ class SettingDetailPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            ' ' + "str_choose_date".tr,
-                            style: const TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 24,
-                                color: AppColors.unSelectedTextColor,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          dropDown(controller)
-                        ],
-                      ),
+                      DropDownItems(
+                          title: "str_choose_date",
+                          selectedItem:() => controller.chooseMonth,
+                          items: controller.months,
+                          itemName: controller
+                              .selectedMonth(controller.months[controller.chooseMonth])),
                       DatePicker(
-                        DateTime.now(),
+                        controller.now,
                         width: Get.width * .175,
                         height: Get.height * .14,
                         dateTextStyle: const TextStyle(
@@ -142,8 +68,7 @@ class SettingDetailPage extends StatelessWidget {
                             fontSize: 20,
                             color: AppColors.unSelectedTextColor,
                             fontWeight: FontWeight.w400),
-                        locale:
-                        DBService.to.getData(StorageKeys.language) ?? 'ru',
+                        locale: controller.locale,
                         selectionColor: AppColors.mainColor,
                         selectedTextColor: AppColors.activeColor,
                         deactivatedColor: AppColors.borderColor,
@@ -217,20 +142,75 @@ class SettingDetailPage extends StatelessWidget {
       },
     );
   }
+}
 
-  Container customDivider() {
+class DropDownItems<T> extends StatelessWidget {
+  final List<T> items;
+  T selectedItem;
+  final List<T> otherItem;
+  final String title;
+  final String itemName;
+
+   DropDownItems({
+    this.otherItem = const [],
+    required this.selectedItem,
+    required this.items,
+    this.title = '',
+    this.itemName = '',
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
-        height: 1,
-        width: Get.width,
-        color: AppColors.borderColor.withOpacity(0.5));
+      margin: const EdgeInsets.symmetric(vertical: 11, horizontal: 15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            ' ' + title.tr,
+            style: const TextStyle(
+                fontFamily: "Poppins",
+                fontSize: 24,
+                color: AppColors.unSelectedTextColor,
+                fontWeight: FontWeight.w600),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 16),
+            decoration: BoxDecoration(
+                border: Border.all(color: AppColors.borderColor, width: 1),
+                borderRadius: BorderRadius.circular(12)),
+            child: Row(
+              children: [
+                Text(
+                  ' ' + itemName.tr,
+                  style: const TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 20,
+                      color: AppColors.unSelectedTextColor,
+                      fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(width: 10),
+                PopItem(selectedItem: selectedItem, items: items, otherItem: otherItem)
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
-class PopItem extends StatelessWidget {
-  final SettingDetailController controller;
 
-  const PopItem({
-    required this.controller,
+class PopItem<T> extends StatelessWidget {
+  final List<T> items;
+   T? selectedItem;
+  final List<T> otherItem;
+
+   PopItem({
+    this.otherItem = const [],
+    required this.selectedItem,
+    required this.items,
     Key? key,
   }) : super(key: key);
 
@@ -247,76 +227,16 @@ class PopItem extends StatelessWidget {
           color: Color(0xFFC2C2C2),
         ),
         itemBuilder: (context) {
-          return [
-            PopupMenuItem(
-              child: Row(
-                children: [
-                  Text(
-                      '${controller.minNumberPeople[1]} - ${controller.maxNumberPeople[1]}')
-                ],
-              ),
-              value: 1,
-            ),
-            PopupMenuItem(
-              child: Row(
-                children: [
-                  Text(
-                      '${controller.minNumberPeople[2]} - ${controller.maxNumberPeople[2]}')
-                ],
-              ),
-              value: 2,
-            ),
-            PopupMenuItem(
-              child: Row(
-                children: [
-                  Text(
-                      '${controller.minNumberPeople[3]} - ${controller.maxNumberPeople[3]}')
-                ],
-              ),
-              value: 3,
-            ),
-            PopupMenuItem(
-              child: Row(
-                children: [
-                  Text(
-                      '${controller.minNumberPeople[4]} - ${controller.maxNumberPeople[4]}')
-                ],
-              ),
-              value: 4,
-            ),
-          ];
-        });
-  }
-}
-
-class PopItem1 extends StatelessWidget {
-  final SettingDetailController controller;
-
-  const PopItem1({
-    required this.controller,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return PopupMenuButton(
-
-        offset: const Offset(15, 35),
-        elevation: 3,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: const Icon(
-          Icons.arrow_downward,
-          color: Color(0xFFC2C2C2),
-        ),
-        itemBuilder: (context) {
-          return controller.maxNumberPeople
+          return items
               .map((e) => PopupMenuItem(
+                  onTap: () => selectedItem = e,
                   child: Row(
                     children: [
-                      Text(
-                          '${controller.minNumberPeople[controller.maxNumberPeople.indexOf(e)]} - $e')
+                      (otherItem.isNotEmpty)
+                          ? Text('${otherItem[items.indexOf(e)]} - '
+                              '$e')
+                          : Text(DateFormat('MMMM')
+                              .format(DateTime(2022, int.parse(e.toString())))),
                     ],
                   ),
                   value: e))
@@ -325,38 +245,3 @@ class PopItem1 extends StatelessWidget {
   }
 }
 
-Widget dropDown(SettingDetailController controller) {
-  return Container(
-    alignment: Alignment.center,
-    height: 40,
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.borderColor, width: 1)),
-    child: DropdownButton<String>(
-      menuMaxHeight: 200,
-      itemHeight: 50,
-      style: const TextStyle(fontSize: 16),
-      alignment: Alignment.center,
-      underline: Container(),
-      isDense: true,
-      value: controller.months.elementAt(controller.dropItem),
-      items: controller.months.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Container(
-              height: 50,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(12)),
-              alignment: Alignment.center,
-              child: Text(
-                DateFormat('MMMM').format(DateTime(2022, int.parse(value))),
-                style: const TextStyle(color: Colors.black),
-              )),
-        );
-      }).toList(),
-      onChanged: (String? value) async {
-        controller.chooseDropItem(value);
-      },
-    ),
-  );
-}

@@ -1,11 +1,17 @@
+import 'package:chayxana/services/db_service.dart';
 import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 
 class SettingDetailController extends GetxController {
   int selectedDate = 0;
-  int dropItem = 0;
+  int chooseMonth = 0;
   int? selectedRoom;
   int? selectedHour;
+  String locale = DBService.to.getData(StorageKeys.language) ?? 'en';
+  DateTime now = DateTime.now();
+
+
 
   List<int> maxNumberPeople = [10, 12, 15, 18, 20];
   List<int> minNumberPeople = [6, 8, 10, 12, 15];
@@ -28,9 +34,16 @@ class SettingDetailController extends GetxController {
   List<String> months =
   List.generate(12, (index) => '${(DateTime.now().month + index) % 12}');
 
+  String nowString() =>
+      DateFormat("EEEE d-MMMM", locale).format(now).toUpperCase();
+
+  String selectedMonth(String selectedMonth) {
+    DateTime date = DateTime(0,int.parse(selectedMonth) );
+    return DateFormat("MMMM", locale).format(date).toUpperCase();
+  }
+
   @override
   void onInit() {
-
     initializeDateFormatting();
     super.onInit();
   }
@@ -48,12 +61,5 @@ class SettingDetailController extends GetxController {
     update();
   }
 
-  void chooseDropItem(String? value){
-    if(value!=null){
-      int index = months.indexOf(value);
-      dropItem = index;
-      update();
-    }
 
-  }
 }

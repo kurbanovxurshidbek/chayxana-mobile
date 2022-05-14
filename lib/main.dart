@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       title: 'Chayxana Mobile',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      home: const SettingDetailPage(),
+      home: const FAQPage(),
       // Localization
       translations: LangService(),
       locale: LangService.locale,
