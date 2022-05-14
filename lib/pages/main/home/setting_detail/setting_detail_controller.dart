@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class SettingDetailController extends GetxController {
   int selectedDate = 0;
+  int dropItem = 0;
   int? selectedRoom;
   int? selectedHour;
 
@@ -23,15 +25,35 @@ class SettingDetailController extends GetxController {
   ];
   List<int> rooms = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
+  List<String> months =
+  List.generate(12, (index) => '${(DateTime.now().month + index) % 12}');
+
+  @override
+  void onInit() {
+
+    initializeDateFormatting();
+    super.onInit();
+  }
+
   void goBack() => Get.back();
 
   void chooseRoom(int index) {
     selectedRoom = index;
+    Get.log(selectedRoom.toString());
     update();
   }
 
   void chooseHour(int index) {
     selectedHour = index;
     update();
+  }
+
+  void chooseDropItem(String? value){
+    if(value!=null){
+      int index = months.indexOf(value);
+      dropItem = index;
+      update();
+    }
+
   }
 }

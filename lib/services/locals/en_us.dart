@@ -40,7 +40,7 @@ const Map<String, String> enUS = {
 
 
 
-//language page
+  //language page
   "str_choose_lang": "Choose language",
 
   //setting_detail_page
@@ -50,5 +50,7 @@ const Map<String, String> enUS = {
   "str_choose_room":"Choose room",
   "str_choose_time":"Select the arrival time",
   "str_clear":"Clear",
-  "str_next":"Next"
+  "str_next":"Next",
+  "str_room":"Room",
+  "str_price": "Price"
 };

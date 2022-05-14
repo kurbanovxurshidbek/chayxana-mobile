@@ -47,9 +47,11 @@ const Map<String, String> ruRU = {
 //setting_detail_page
   "str_guests": "Гости",
   "str_people_count": "Число людей",
-  "str_choose_date":"Выберите дату",
-  "str_choose_room":"Выберите комнату",
-  "str_choose_time":"Выберите время прибытия",
-  "str_clear":"Очистить",
-  "str_next":"Дальше"
+  "str_choose_date": "Выберите дату",
+  "str_choose_room": "Выберите комнату",
+  "str_choose_time": "Выберите время прибытия",
+  "str_clear": "Очистить",
+  "str_next": "Дальше",
+  "str_room": "Комнота",
+  "str_price": "Цена"
 };
