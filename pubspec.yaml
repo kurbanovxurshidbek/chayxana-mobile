@@ -27,6 +27,15 @@ dependencies:
   # use google map
   google_maps_flutter: ^2.1.4
 
+  # use phone register
+  intl_phone_field: ^3.1.0
+
+  # use date format
+  intl: ^0.17.0
+
+  # use Cached Network Image
+  cached_network_image: ^3.2.0
+
 #  dio
 #  google_maps_flutter
 #  cached_network_image

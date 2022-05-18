@@ -1,5 +1,10 @@
 import 'package:get/get.dart';
 
 class FeedbackController extends GetxController {
-  /// #Doniyor
+  bool check = false;
+  void changeButtonColor () {
+    check = true;
+    update();
+
+  }
 }
