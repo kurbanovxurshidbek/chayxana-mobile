@@ -23,6 +23,8 @@ dependencies:
 
   # connecting network
   dio: ^4.0.6
+  intl:
+  intl_phone_field:
 
   # use google map
   google_maps_flutter: ^2.1.4
