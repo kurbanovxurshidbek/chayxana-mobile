@@ -35,6 +35,9 @@ class AppColors {
   /// ![](https://via.placeholder.com/15/E74C3C/000000?text=+)  <i>E74C3C</i>
   static const Color redResult = Color(0xFFE74C3C);
 
+  /// ![](https://via.placeholder.com/15/FCAF45/000000?text=+)  <i>FCAF45</i>
+  static const Color starColor = Color(0xFFFCAF45);
+
   /// ![](https://via.placeholder.com/15/2FCC71/000000?text=+)  <i>2FCC71</i>
   static const Color greenCheck = Color(0xFF2FCC71);
 
