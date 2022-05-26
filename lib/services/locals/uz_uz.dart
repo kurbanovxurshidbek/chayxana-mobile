@@ -38,4 +38,8 @@ const Map<String, String> uzUZ = {
   'invalid_password': "Iltimos parolni to'g'ri kiriting!",
 
   // current project
+  'intro_header_one': "Aktsiyalar va bonuslar  bilan \n 200 dan ortiq sinflar",
+  'intro_content_one': "Sovg'alar, chegirmalar va janglarni oling",
+  'button_next':"Keyingisi",
+  "button_enter":"Kirish"
 };

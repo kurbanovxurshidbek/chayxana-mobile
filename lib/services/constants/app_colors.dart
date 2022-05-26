@@ -35,6 +35,16 @@ class AppColors {
   /// ![](https://via.placeholder.com/15/2FCC71/000000?text=+)  <i>2FCC71</i>
   static const Color greenCheck = Color(0xFF2FCC71);
 
+  /// ![](https://via.placeholder.com/15/1A1922/000000?text=+)  <i>1A1922</i>
+  static const Color textColor = Color(0xFF1A1922);
+
+  /// ![](https://via.placeholder.com/15/939297/000000?text=+)  <i>939297</i>
+  static const Color subTextColor = Color(0xFF939297);
+
+  static const Color backgroundColor = Color(0xFFE5E5E5);
+
+  static const Color dashboardRowButtonIsNotPressed =  Color(0xFFF9F9F9);
+
   static const List<Color> gradientColor = [
     Color(0xFFC23484),
     Color(0xFFFCAF45)
