@@ -25,6 +25,8 @@ dependencies:
   dio: ^4.0.6
   intl:
   intl_phone_field:
+  cached_network_image:
+
 
   # use google map
   google_maps_flutter: ^2.1.4
