@@ -18,6 +18,7 @@ class AppColors {
 
   /// ![](https://via.placeholder.com/15/4F4F4F/000000?text=+)  <i>4F4F4F</i>
   static const Color notFoundText = Color(0xFF4F4F4F);
+
   /// ![](https://via.placeholder.com/15/4F4F4F/000000?text=+)  <i>4F4F4F</i>
   ///
   static const Color grey = Color(0xFF9E9E9E);
@@ -25,5 +26,14 @@ class AppColors {
   /// ![](https://via.placeholder.com/15/F44336/000000?text=+)  <i>F44336</i>
   static const Color red = Color(0xFFF44336);
 
-  static const List<Color> gradientColor = [Color(0xFFC23484),Color(0xFFFCAF45)];
+  /// ![](https://via.placeholder.com/15/E74C3C/000000?text=+)  <i>E74C3C</i>
+  static const Color redResult = Color(0xFFE74C3C);
+
+  /// ![](https://via.placeholder.com/15/2FCC71/000000?text=+)  <i>2FCC71</i>
+  static const Color greenCheck = Color(0xFF2FCC71);
+
+  static const List<Color> gradientColor = [
+    Color(0xFFC23484),
+    Color(0xFFFCAF45)
+  ];
 }
