@@ -36,7 +36,7 @@ class LangService extends Translations {
 
   static final locale = defLanguage(DBService.to.getData<String>(StorageKeys.language) ?? LangService.langs[0]);
   
-  String defaultLanguage() {
+ static String defaultLanguage() {
     final locale = Get.locale;
     var lan = locale.toString();
     if(lan == "ru_RU") return langs[1];
@@ -49,7 +49,7 @@ class LangService extends Translations {
     return locales[index];
   }
 
-  void changeLocale(String lang) {
+  static void changeLocale(String lang) {
     final locale = _getLocaleFromLanguage(lang);
     if(locale != null) {
       Get.updateLocale(locale);
@@ -57,7 +57,7 @@ class LangService extends Translations {
     }
   }
 
-  Locale? _getLocaleFromLanguage(String lang) {
+ static Locale? _getLocaleFromLanguage(String lang) {
     for(int i = 0; i < langs.length; i++) {
       if(lang == langs[i]) return locales[i];
     }
