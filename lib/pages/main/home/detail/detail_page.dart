@@ -88,7 +88,7 @@ class DetailPage extends StatelessWidget {
                                         child: IconButton(
                                           onPressed: () {},
                                           icon: const ImageIcon(
-                                            AssetImage("assets/icons/img.png"),
+                                            AssetImage(AppAssets.historyIC),
                                             color: Colors.white,
                                           ),
                                         ),
@@ -287,10 +287,10 @@ class DetailPage extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              buttonOfservices(
-                                  "assets/icons/img_3.png", "Позванить"),
-                              buttonOfservices(
-                                  "assets/icons/img_4.png", "Маршрут"),
+                              buttonOfServices(
+                                  AppAssets.phoneIC, "Позванить"),
+                              buttonOfServices(
+                                  AppAssets.connectObjectIC, "Маршрут"),
                             ],
                           ),
                           const SizedBox(height: 15),
@@ -307,10 +307,10 @@ class DetailPage extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  buttonOfservices(
-                                      "assets/icons/img_5.png", "Позванить"),
-                                  buttonOfservices(
-                                      "assets/icons/img_6.png", "Маршрут"),
+                                  buttonOfServices(
+                                      AppAssets.phoneIC, "Позванить"),
+                                  buttonOfServices(
+                                      AppAssets.connectObjectIC, "Маршрут"),
                                 ],
                               ),
                               const SizedBox(
@@ -320,10 +320,10 @@ class DetailPage extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  buttonOfservices(
-                                      "assets/icons/img_7.png", "Позванить"),
-                                  buttonOfservices(
-                                      "assets/icons/img_8.png", "Маршрут"),
+                                  buttonOfServices(
+                                      AppAssets.phoneIC, "Позванить"),
+                                  buttonOfServices(
+                                      AppAssets.connectObjectIC, "Маршрут"),
                                 ],
                               ),
                             ],
@@ -341,7 +341,7 @@ class DetailPage extends StatelessWidget {
     );
   }
 
-  Container buttonOfservices(String imageIcon, String textOfIcon) {
+  Container buttonOfServices(String imageIcon, String textOfIcon) {
     return Container(
       height: Get.height / 17.9,
       width: Get.width / 2.28,
