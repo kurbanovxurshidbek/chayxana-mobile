@@ -20,8 +20,11 @@ class AppColors {
   static const Color notFoundText = Color(0xFF4F4F4F);
 
   /// ![](https://via.placeholder.com/15/4F4F4F/000000?text=+)  <i>4F4F4F</i>
-  ///
   static const Color grey = Color(0xFF9E9E9E);
+
+
+  /// ![](https://via.placeholder.com/15/848484/000000?text=+)  <i>848484</i>
+  static const Color greyText = Color(0xFF848484);
 
   /// ![](https://via.placeholder.com/15/F44336/000000?text=+)  <i>F44336</i>
   static const Color red = Color(0xFFF44336);
