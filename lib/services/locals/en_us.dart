@@ -31,16 +31,31 @@ const Map<String, String> enUS = {
   'attendance': "Attendance",
   'date': "Date",
   'try_again': "Please try again!",
-  'forget_pressed_button': "You didn't press the 'Clock Out' button yesterday, please report it to the HR supervisor!",
+  'forget_pressed_button':
+      "You didn't press the 'Clock Out' button yesterday, please report it to the HR supervisor!",
   'disable': "This button is only pressed when you come and go!",
   'check_network': "You are offline. Please, check your Internet connection!",
   'incorrectly_phone': "Please enter the number available in the system!",
   'invalid_password': "Please enter the password correctly!",
 
-  // current project
-  // page intro
+// current project
+// page intro
   'intro_header_one': "More than 200 classes \n with promotions and bonuses",
   'intro_content_one': "Get gifts, discounts for you",
-  'button_next':"Next",
-  "button_enter":"Enter"
+  'button_next': "Next",
+  "button_enter": "Enter",
+
+//language page
+  "str_choose_lang": "Choose language",
+
+//setting_detail_page
+  "str_guests": "Visitors",
+  "str_people_count": "Number of people",
+  "str_choose_date": "Choose date",
+  "str_choose_room": "Choose room",
+  "str_choose_time": "Select the arrival time",
+  "str_clear": "Clear",
+  "str_next": "Next",
+  "str_room": "Room",
+  "str_price": "Price"
 };

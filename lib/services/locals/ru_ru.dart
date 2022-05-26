@@ -41,5 +41,19 @@ const Map<String, String> ruRU = {
   'intro_header_one': "Боле 2 00 занятий /n с акциями и бонусами",
   'intro_content_one': "Получайте подарки, скидки и боеусны",
   'button_next':"далее",
-  "button_enter":"начат"
+  "button_enter":"начат",
+
+  //language page
+  "str_choose_lang": "Выберите язык",
+
+//setting_detail_page
+  "str_guests": "Гости",
+  "str_people_count": "Число людей",
+  "str_choose_date": "Выберите дату",
+  "str_choose_room": "Выберите комнату",
+  "str_choose_time": "Выберите время прибытия",
+  "str_clear": "Очистить",
+  "str_next": "Дальше",
+  "str_room": "Комнота",
+  "str_price": "Цена"
 };
