@@ -4,6 +4,9 @@ class AppColors {
   /// ![](https://via.placeholder.com/15/17B700/000000?text=+)  <i>17B700</i>
   static const Color mainColor = Color(0xFF17B700);
 
+  /// ![](https://via.placeholder.com/15/17B700/000000?text=+)  <i>17B700</i>
+  static const Color introBackground =  Color(0xff40C244);
+
   /// ![](https://via.placeholder.com/15/FFFFFF/000000?text=+)  <i>FFFFFF</i>
   static const Color activeColor = Color(0xFFFFFFFF);
 

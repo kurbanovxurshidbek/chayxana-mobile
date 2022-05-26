@@ -1,16 +1,23 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class IntroController extends GetxController{
+class IntroController extends GetxController {
+  /// #Otabek
+
   PageController pageController = PageController(
     initialPage: 0,
     keepPage: true,
   );
-  String text1 = "Боле 2 00 заведений с акциями и бонусами";
-  String tex2 = "Получайте подарки, скидки и боеусны";
-  List <String> images = ['assets/images/img_2.png',"assets/images/img_1.png","assets/images/img.png"];
+  List <String> images = [
+    'assets/images/img_2.png',
+    "assets/images/img_1.png",
+    "assets/images/img.png"
+  ];
   int page = 0;
-  void directSmooth(int index){
+
+
+
+  void directSmooth(int index) {
     page = index;
     update();
   }
@@ -23,7 +30,7 @@ class IntroController extends GetxController{
 
     } else {
       pageController.animateToPage(
-          index + 1, duration: Duration(milliseconds: 500), curve: Curves.ease);
+          index + 1, duration: const Duration(milliseconds: 500), curve: Curves.ease);
     }
   }
 }
