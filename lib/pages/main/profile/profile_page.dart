@@ -1,5 +1,6 @@
 import 'package:chayxana/services/constants/app_assets.dart';
 import 'package:chayxana/services/constants/app_colors.dart';
+import 'package:chayxana/views/svg_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -56,7 +57,8 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
+             SizedBox(height: 15,),
+             /* Container(
                   padding: const EdgeInsets.all(15),
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -118,7 +120,7 @@ class ProfilePage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 15),
-                      ])),
+                      ])),*/
               Container(
                   height: 168,
                   padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -129,7 +131,7 @@ class ProfilePage extends StatelessWidget {
                   child: Column(children: [
                     forPersonalInformation(
                       "Город",
-                      "assets/icons/img_14.png",
+                      "assets/icons/ic_location.svg",
                       "Ташкент",
                     ),
                     const Divider(
@@ -211,7 +213,7 @@ class ProfilePage extends StatelessWidget {
                       style: const TextStyle(
                           fontSize: 14, color: AppColors.subTextColor)),
                   IconButton(
-                      onPressed: () {}, icon: ImageIcon(AssetImage(icons)))
+                      onPressed: () {}, icon: OpenSVG(path: icons,))
                 ],
               )
             ],

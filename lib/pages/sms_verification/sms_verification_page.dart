@@ -66,7 +66,7 @@ class SmsVerificationPage extends StatelessWidget {
                                       color: AppColors.mainColor,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                    length: 6,
+                                    length: 5,
                                     obscureText: true,
                                     obscuringCharacter: '*',
                                     blinkWhenObscuring: true,

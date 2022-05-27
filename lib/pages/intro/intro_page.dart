@@ -49,7 +49,7 @@ class IntroPage extends StatelessWidget {
                       smoothIndicator(_controller, 2),
                     ],
                   ),
-                  SizedBox(height: Get.height / 13.78),
+                  SizedBox(height: Get.height / 15),
 
                   ///### inter button
                   Container(
@@ -67,8 +67,8 @@ class IntroPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    width: MediaQuery.of(context).size.width / 1.6,
-                    height: MediaQuery.of(context).size.height / 16,
+                    width: Get.width / 1.6,
+                    height: Get.height / 16,
                     decoration: BoxDecoration(
                         color: AppColors.activeColor,
                         borderRadius: BorderRadius.circular(12)),

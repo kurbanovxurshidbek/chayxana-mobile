@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class SmsVerificationController extends GetxController {
   /// #Otabek
   TextEditingController textEditingController = TextEditingController();
-  String keyOfVerifaction = "123456";
+  String keyOfVerifaction = "12345";
 
 // ignore: close_sinks
   bool hasError = false;
