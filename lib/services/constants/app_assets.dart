@@ -30,6 +30,9 @@ class AppAssets {
   static const String warningIC = 'assets/icons/ic_warning.svg';
   static const String wifiIC = 'assets/icons/ic_wifi.svg';
   static const String notification = 'assets/icons/ic_notification.svg';
+  static const String intro1IM = 'assets/icons/im_intro1.png';
+  static const String intro2IM = 'assets/icons/im_intro2.png';
+  static const String intro3IM = 'assets/icons/im_intro3.png';
   static const String galleryPhoto1IM = 'assets/icons/im_gallery_photo1.png';
   static const String galleryPhoto2IM = 'assets/icons/im_gallery_photo2.png';
   static const String galleryPhoto3IM = 'assets/icons/im_gallery_photo3.png';

@@ -28,7 +28,12 @@ class SplashPage extends StatelessWidget {
                   SizedBox(
                       height: Get.height * .06,
                       width: Get.width * .39,
-                      child: const OpenSVG(path: AppAssets.splashLogo2IC, height: 52, width: 162))
+                      child: const OpenSVG(
+                        path: AppAssets.splashLogo2IC,
+                        isGradient: true,
+                        height: 52,
+                        width: 162,
+                      ))
                 ],
               ),
             ),

@@ -1,3 +1,5 @@
+import 'package:chayxana/pages/main/main_page.dart';
+import 'package:chayxana/services/constants/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,28 +11,26 @@ class IntroController extends GetxController {
     keepPage: true,
   );
   List <String> images = [
-    'assets/images/img_2.png',
-    "assets/images/img_1.png",
-    "assets/images/img.png"
+    AppAssets.intro1IM,
+    AppAssets.intro2IM,
+    AppAssets.intro3IM
   ];
   int page = 0;
-
-
 
   void directSmooth(int index) {
     page = index;
     update();
   }
+  void goHome() => Get.off(() => const MainPage());
+
   void bottomTapped(int index) {
     page = index;
     update();
     if (index == 2) {
-
-      ///### for move to HomePage
-
+      goHome();
     } else {
-      pageController.animateToPage(
-          index + 1, duration: const Duration(milliseconds: 500), curve: Curves.ease);
+      pageController.animateToPage(index + 1,
+          duration: const Duration(milliseconds: 500), curve: Curves.ease);
     }
   }
 }

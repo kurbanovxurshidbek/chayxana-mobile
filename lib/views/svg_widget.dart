@@ -14,7 +14,7 @@ class OpenSVG extends StatelessWidget {
       {Key? key,
         required this.path,
         this.color = AppColors.activeColor,
-        this.isGradient = true,
+        this.isGradient = false,
         this.width = 150,
         this.height = 162.0})
       : super(key: key);

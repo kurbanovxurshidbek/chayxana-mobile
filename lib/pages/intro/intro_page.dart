@@ -1,4 +1,5 @@
 import 'package:chayxana/services/constants/app_colors.dart';
+import 'package:chayxana/views/svg_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -104,8 +105,8 @@ class IntroPage extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
           SizedBox(height: Get.height / 9.8),
-          Image(
-            image: AssetImage(image),
+          OpenSVG(
+            path: image,
             width: Get.width / 1.089,
             height: Get.height / 3.143,
           ),
