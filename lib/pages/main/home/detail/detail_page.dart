@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chayxana/pages/main/home/detail/detail_controller.dart';
 import 'package:chayxana/services/constants/app_assets.dart';
 import 'package:chayxana/services/constants/app_colors.dart';
+import 'package:chayxana/views/svg_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,15 +18,13 @@ class DetailPage extends StatelessWidget {
       builder: (_controller) {
         return Scaffold(
           backgroundColor: AppColors.activeColor,
-          body: SingleChildScrollView(
-            controller: _controller.scrollController,
-            child: Column(
+          body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ///### Main image of detail Page and animation
                 Stack(
                   children: [
-                    AnimatedContainer(
+                    Row(children: [AnimatedContainer(
                         margin: EdgeInsets.only(
                             left: _controller.marginOfContainer1,
                             top: _controller.marginOfContainer2),
@@ -39,7 +38,7 @@ class DetailPage extends StatelessWidget {
                               _controller.border.toDouble()),
                           child: CachedNetworkImage(
                             imageUrl:
-                                "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+                            "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
                             imageBuilder: (context, imageProvider) => Container(
                               decoration: BoxDecoration(
                                 image: DecorationImage(
@@ -50,11 +49,17 @@ class DetailPage extends StatelessWidget {
                               ),
                             ),
                             placeholder: (context, url) =>
-                                const CircularProgressIndicator(),
+                            const CircularProgressIndicator(),
                             errorWidget: (context, url, error) =>
-                                const Icon(Icons.error),
+                            const Icon(Icons.error),
                           ),
-                        )),
+                        )),],),
+                    !_controller.needStack?const Positioned(
+
+                        top: 40,
+                        left: 110,
+                        child: Text("Chayxana name",style: TextStyle(fontSize: 26, fontFamily: "Poppons", fontWeight: FontWeight.w600),)):const SizedBox(),
+                   ///CHAYXANA NAME ABOVE OF APPBar
                     Positioned(
                       child: _controller.needStack
                           ? Container(
@@ -74,6 +79,7 @@ class DetailPage extends StatelessWidget {
                                     children: [
                                       Center(
                                           child: IconButton(
+                                            /// X Icon
                                         icon: const Icon(
                                           Icons.clear,
                                           color: AppColors.activeColor,
@@ -81,20 +87,19 @@ class DetailPage extends StatelessWidget {
                                         ),
                                         onPressed: () {},
                                       )),
+                                      /// locagon button
                                       CircleAvatar(
                                         radius: 24,
                                         backgroundColor:
                                             const Color(0x7400ccff),
                                         child: IconButton(
                                           onPressed: () {},
-                                          icon: const ImageIcon(
-                                            AssetImage(AppAssets.historyIC),
-                                            color: Colors.white,
-                                          ),
+                                          icon: const OpenSVG(path: "assets/icons/ic_favorite.svg",color: AppColors.iconofDetail,),
                                         ),
                                       )
                                     ],
                                   ),
+                                  /// Its s for pucture number button
                                   Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
@@ -102,6 +107,7 @@ class DetailPage extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       const SizedBox(),
+                                      /// for border
                                       Container(
                                         height: Get.height / 22.4,
                                         width: Get.width / 5,
@@ -115,11 +121,7 @@ class DetailPage extends StatelessWidget {
                                           children: [
                                             IconButton(
                                               onPressed: () {},
-                                              icon: const ImageIcon(
-                                                AssetImage(
-                                                    AppAssets.addPhotoIC),
-                                                color: AppColors.activeColor,
-                                              ),
+                                              icon: const OpenSVG(path: "assets/icons/ic_camera.svg",)
                                             ),
                                             const Text(
                                               "14",
@@ -139,8 +141,8 @@ class DetailPage extends StatelessWidget {
                     )
                   ],
                 ),
-
-                Column(
+          Expanded(child:  ListView(
+        controller: _controller.scrollController,
                   children: [
                     ///###chayxana name and rate
                     Container(
@@ -191,20 +193,20 @@ class DetailPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            "Адрес",
-                            style: TextStyle(
+                           Text(    "location_of_city".tr,
+                            style: const TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
+
                           ),
                           const SizedBox(height: 15),
-                          const Text(
-                            "Ташкент",
+                           Text(
+                            "city".tr,
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 10),
-                          const Text("Юнусабадский район, Амир Темур",
-                              style: TextStyle(fontSize: 16)),
+                          Text("region_locatin".tr,
+                              style: const TextStyle(fontSize: 16)),
                           const SizedBox(height: 15),
                           Container(
                             height: Get.height / 11.2,
@@ -218,14 +220,14 @@ class DetailPage extends StatelessWidget {
                           const Divider(
                               color: AppColors.unSelectedTextColor, height: 1),
                           const SizedBox(height: 15),
-                          const Text(
-                            "Описание",
+                          Text(
+                            "Description".tr,
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 15),
-                          const Text(
-                              "Ресторан в любовно отреставрированном павильоне «Шелководство» на ВДНХ работает с мая 2016 года. В заведении два зала, летом к ним добавляются две большие веранды; вокруг парк, а совсем неподалеку Зеленый театр.",
+                           Text(
+                               "description_detail".tr,
                               style: TextStyle(fontSize: 16)),
                           const SizedBox(height: 15),
                           const Divider(
@@ -237,16 +239,16 @@ class DetailPage extends StatelessWidget {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Text(
-                                    "Режим работы",
+                                    "working_mode".tr,
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   SizedBox(height: 15),
                                   Text(
-                                    "Сегодня 10:00 - 23:00",
+                                    "working_hour".tr,
                                     style: TextStyle(fontSize: 16),
                                   ),
                                 ],
@@ -262,9 +264,9 @@ class DetailPage extends StatelessWidget {
                                 child: Center(
                                   child: TextButton(
                                     onPressed: () {},
-                                    child: const Text(
-                                      'Подробнее',
-                                      style: TextStyle(
+                                    child:  Text(
+                                      'more'.tr,
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,
                                           color: AppColors.unSelectedTextColor),
@@ -279,18 +281,19 @@ class DetailPage extends StatelessWidget {
                               color: AppColors.unSelectedTextColor, height: 1),
                           const SizedBox(height: 15),
                           const Text(
-                            "Информатция",
+                            "Information",
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 15),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment:
+                            MainAxisAlignment.spaceBetween,
                             children: [
                               buttonOfServices(
-                                  AppAssets.phoneIC, "Позванить"),
+                                  AppAssets.phoneIC, "call".tr),
                               buttonOfServices(
-                                  AppAssets.connectObjectIC, "Маршрут"),
+                                  AppAssets.connectObjectIC, "route".tr),
                             ],
                           ),
                           const SizedBox(height: 15),
@@ -308,9 +311,9 @@ class DetailPage extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   buttonOfServices(
-                                      AppAssets.phoneIC, "Позванить"),
+                                      AppAssets.tableIC, "verandas".tr),
                                   buttonOfServices(
-                                      AppAssets.connectObjectIC, "Маршрут"),
+                                      AppAssets.carIC, "parking".tr),
                                 ],
                               ),
                               const SizedBox(
@@ -321,21 +324,21 @@ class DetailPage extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   buttonOfServices(
-                                      AppAssets.phoneIC, "Позванить"),
+                                      AppAssets.tvIC, "tv".tr),
                                   buttonOfServices(
-                                      AppAssets.connectObjectIC, "Маршрут"),
+                                      AppAssets.wifiIC, "wifi".tr),
                                 ],
                               ),
                             ],
                           )
                         ],
                       ),
-                    )
+                    ),
+                    SizedBox(height: 200,),
                   ],
-                )
+                ))
               ],
             ),
-          ),
         );
       },
     );
@@ -343,27 +346,25 @@ class DetailPage extends StatelessWidget {
 
   Container buttonOfServices(String imageIcon, String textOfIcon) {
     return Container(
-      height: Get.height / 17.9,
-      width: Get.width / 2.28,
+      height: 45,
+      width: Get.width / 2.30,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: AppColors.dashboardRowButtonIsNotPressed,
       ),
-      child: MaterialButton(
-        onPressed: () {},
         child: Row(
           children: [
-            ImageIcon(AssetImage(imageIcon)),
+            OpenSVG(path: imageIcon,color: AppColors.iconofService,width: 40,height: 40,),
             SizedBox(
               width: Get.width / 20,
             ),
             Text(
-              textOfIcon,
-              style: const TextStyle(fontSize: 18),
+              textOfIcon.tr,
+              style: const TextStyle(fontSize: 18,color: AppColors.iconofService),
             ),
           ],
         ),
-      ),
+
     );
   }
 }

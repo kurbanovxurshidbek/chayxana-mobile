@@ -41,8 +41,8 @@ class DetailController extends GetxController {
     widthofContainer = 60;
     border = 80;
     needStack = false;
-    marginOfContainer1 = 15;
-    marginOfContainer2 = 50;
+    marginOfContainer1 = 30;
+    marginOfContainer2 =  30;
     update();
     print("animation");
   }

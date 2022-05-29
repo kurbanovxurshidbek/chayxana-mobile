@@ -47,10 +47,15 @@ class AppColors {
   /// ![](https://via.placeholder.com/15/939297/000000?text=+)  <i>939297</i>
   static const Color subTextColor = Color(0xFF939297);
 
+  /// ![](https://via.placeholder.com/15/939297/000000?text=+)  <i>E5E5E5</i>
   static const Color backgroundColor = Color(0xFFE5E5E5);
 
+  /// ![](https://via.placeholder.com/15/939297/000000?text=+)  <i>F9F9F9</i>
   static const Color dashboardRowButtonIsNotPressed =  Color(0xFFF9F9F9);
 
+  static const Color iconofDetail = Color(0xFFFFFFFF);
+
+  static const Color iconofService = Color(0xFF000000);
   static const List<Color> gradientColor = [
     Color(0xFFC23484),
     Color(0xFFFCAF45)

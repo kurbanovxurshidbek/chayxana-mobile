@@ -57,5 +57,24 @@ const Map<String, String> enUS = {
   "str_clear": "Clear",
   "str_next": "Next",
   "str_room": "Room",
-  "str_price": "Price"
+  "str_price": "Price",
+
+  ///detailPage
+  "location_of_city": "Location",
+  "region_locatin":"Amir tumer region",
+  "city":"Tashkent",
+  "Description":"Description",
+  "description_detail":"The restaurant in the lovingly restored Sericulture pavilion at VDNKh has been operating since May 2016. The establishment has two halls, in the summer two large verandas are added to them; around the park, and very close to the Green Theater.",
+  "working_mode":"Working mode",
+  "working_hour":"Today 10:00 - 23:00",
+  "more":"More",
+  "information":"Information",
+  "route":"Route",
+  "call":"Call",
+  "underline":"metro",
+  "tv":"Tv",
+  "parking":"parking",
+  "verandas":"verandas",
+  "wifi":"Wi-Fi"
 };
+
