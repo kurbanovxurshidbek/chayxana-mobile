@@ -14,23 +14,23 @@ class IntroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<IntroController>(
       init: IntroController(),
-      builder: (_controller) {
+      builder: (controller) {
         return Scaffold(
           backgroundColor: AppColors.introBackground,
           body: Stack(
             children: [
               PageView(
-                controller: _controller.pageController,
+                controller: controller.pageController,
                 children: [
                   pageViewForm("intro_header_one".tr, "intro_content_one".tr,
-                      _controller.images[0]),
+                      controller.images[0]),
                   pageViewForm('intro_header_one'.tr, "intro_content_one".tr,
-                      _controller.images[1]),
+                      controller.images[1]),
                   pageViewForm('intro_header_one'.tr, "intro_content_one".tr,
-                      _controller.images[2]),
+                      controller.images[2]),
                 ],
                 onPageChanged: (index) {
-                  _controller.directSmooth(index);
+                  controller.directSmooth(index);
                 },
               ),
 
@@ -42,20 +42,25 @@ class IntroPage extends StatelessWidget {
                 child: Column(children: [
                   Row(
                     children: [
-                      smoothIndicator(_controller, 0),
+                      smoothIndicator(controller, 0),
                       const SizedBox(width: 14),
-                      smoothIndicator(_controller, 1),
+                      smoothIndicator(controller, 1),
                       const SizedBox(width: 14),
-                      smoothIndicator(_controller, 2),
+                      smoothIndicator(controller, 2),
                     ],
                   ),
                   SizedBox(height: Get.height / 15),
 
                   ///### inter button
                   Container(
+                    width: Get.width / 1.6,
+                    height: Get.height / 16,
+                    decoration: BoxDecoration(
+                        color: AppColors.activeColor,
+                        borderRadius: BorderRadius.circular(12)),
                     child: MaterialButton(
                       onPressed: () {
-                        _controller.bottomTapped(_controller.page);
+                        controller.bottomTapped(controller.page);
                       },
                       child: const Center(
                         child: Text(
@@ -67,11 +72,6 @@ class IntroPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    width: Get.width / 1.6,
-                    height: Get.height / 16,
-                    decoration: BoxDecoration(
-                        color: AppColors.activeColor,
-                        borderRadius: BorderRadius.circular(12)),
                   )
                 ]),
               )
@@ -82,9 +82,9 @@ class IntroPage extends StatelessWidget {
     );
   }
 
-  CircleAvatar smoothIndicator(IntroController _controller, index) {
+  CircleAvatar smoothIndicator(IntroController controller, index) {
     return CircleAvatar(
-      backgroundColor: _controller.page == index
+      backgroundColor: controller.page == index
           ? AppColors.unSelectedTextColor
           : AppColors.activeColor,
       radius: 7,

@@ -68,9 +68,9 @@ class RegionPage extends StatelessWidget {
                     index == controller.region.length - 1
                         ? controller.dividerChecker = Container()
                         : controller.dividerChecker = const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 15),
                             child: Divider(
                                 height: 1, color: AppColors.borderColor),
-                            padding: EdgeInsets.symmetric(horizontal: 15),
                           );
 
                     return Column(
@@ -82,13 +82,13 @@ class RegionPage extends StatelessWidget {
                           ),
                           height: 52,
                           width: double.infinity,
+                          alignment: Alignment.centerLeft,
                           child: Text(
                             controller.region[index],
                             style: const TextStyle(
                                 fontSize: 16,
                                 color: AppColors.unSelectedTextColor),
                           ),
-                          alignment: Alignment.centerLeft,
                         ),
                         controller.dividerChecker
                       ],

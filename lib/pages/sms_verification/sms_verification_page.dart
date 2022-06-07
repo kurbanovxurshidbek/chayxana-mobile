@@ -14,7 +14,7 @@ class SmsVerificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<SmsVerificationController>(
       init: SmsVerificationController(),
-      builder: (_controller) {
+      builder: (controller) {
         return Scaffold(
           backgroundColor: const Color(0xffEDEDED),
           body: ListView(
@@ -56,7 +56,7 @@ class SmsVerificationPage extends StatelessWidget {
                           children: <Widget>[
                             const SizedBox(height: 30),
                             Form(
-                              key: _controller.formKey,
+                              key: controller.formKey,
                               child: Padding(
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 8.0, horizontal: 30),
@@ -93,7 +93,7 @@ class SmsVerificationPage extends StatelessWidget {
                                         const Duration(milliseconds: 300),
                                     enableActiveFill: true,
                                     controller:
-                                        _controller.textEditingController,
+                                        controller.textEditingController,
                                     keyboardType: TextInputType.number,
                                     boxShadows: const [
                                       BoxShadow(
@@ -116,7 +116,7 @@ class SmsVerificationPage extends StatelessWidget {
                             /// timer calculator
                             Center(
                               child: Text(
-                                "Отправить код еще раз через ...00:${_controller.limitedTime}",
+                                "Отправить код еще раз через ...00:${controller.limitedTime}",
                                 style: const TextStyle(
                                     fontSize: 13, color: AppColors.borderColor),
                               ),
@@ -137,12 +137,12 @@ class SmsVerificationPage extends StatelessWidget {
                               /// Button for check pincode
                               child: MaterialButton(
                                 onPressed: () {
-                                  _controller.calculateTime();
-                                  _controller.formKey.currentState!.validate();
+                                  controller.calculateTime();
+                                  controller.formKey.currentState!.validate();
                                   // conditions for validating
-                                  if (_controller.currentText.length != 6 ||
-                                      _controller.currentText !=
-                                          _controller.keyOfVerifaction) {
+                                  if (controller.currentText.length != 6 ||
+                                      controller.currentText !=
+                                          controller.keyOfVerifaction) {
                                     Get.snackbar(
                                         "pincode", "notug'ri parol kiritildi");
                                   } else {}

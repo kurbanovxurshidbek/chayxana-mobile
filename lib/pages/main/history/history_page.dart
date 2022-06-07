@@ -165,6 +165,11 @@ class HistoryPage extends StatelessWidget {
                                                                               .activeColor,
                                                                       width:
                                                                           1))),
+                                                          width: 45,
+                                                          height: Get.height *
+                                                              0.061,
+                                                          alignment:
+                                                              Alignment.center,
                                                           child: const Text(
                                                               "20:30",
                                                               style: TextStyle(
@@ -172,11 +177,6 @@ class HistoryPage extends StatelessWidget {
                                                               textAlign:
                                                                   TextAlign
                                                                       .center),
-                                                          width: 45,
-                                                          height: Get.height *
-                                                              0.061,
-                                                          alignment:
-                                                              Alignment.center,
                                                         ),
                                                         //  SizedBox(width: 5,),
 

@@ -56,13 +56,13 @@ class LanguagePage extends StatelessWidget {
                         itemExtent: 60,
                         onSelectedItemChanged: (index) =>
                             controller.langChangeWithAnimation(index),
+                        looping: true,
                         // physics: const FixedExtentScrollPhysics(),
                         children: [
                           getLanguage("English", 0, controller.selected),
                           getLanguage("Russian", 1, controller.selected),
                           getLanguage("Uzbek", 2, controller.selected),
                         ],
-                        looping: true,
                       ),
                     ),
                   ),

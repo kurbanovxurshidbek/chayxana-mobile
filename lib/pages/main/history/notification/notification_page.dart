@@ -14,7 +14,7 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<NotificationController>(
         init: NotificationController(),
-        builder: (_controller) {
+        builder: (controller) {
           return Scaffold(
             appBar: AppBar(
               toolbarHeight: Get.height / 8.96,
@@ -42,14 +42,14 @@ class NotificationPage extends StatelessWidget {
                       height: Get.height / 26,
                       width: Get.width / 4.5,
                       decoration: BoxDecoration(
-                        color: _controller.indexPage == 0
+                        color: controller.indexPage == 0
                             ? AppColors.activeColor
                             : AppColors.backgroundColor,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: InkWell(
                         onTap: () {
-                          _controller.changeIndex(0);
+                          controller.changeIndex(0);
                         },
                         child: const Center(
                           child: Text(
@@ -66,14 +66,14 @@ class NotificationPage extends StatelessWidget {
                       height: Get.height / 26,
                       width: Get.width / 3.5,
                       decoration: BoxDecoration(
-                        color: _controller.indexPage == 1
+                        color: controller.indexPage == 1
                             ? AppColors.activeColor
                             : AppColors.backgroundColor,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: InkWell(
                         onTap: () {
-                          _controller.changeIndex(1);
+                          controller.changeIndex(1);
                         },
                         child: const Center(
                           child: Text(
@@ -91,9 +91,9 @@ class NotificationPage extends StatelessWidget {
               ),
             ),
             body: PageView(
-              controller: _controller.pageController,
+              controller: controller.pageController,
               onPageChanged: (index) {
-                _controller.changeIndex(index);
+                controller.changeIndex(index);
               },
               children: [
                 ListView.builder(

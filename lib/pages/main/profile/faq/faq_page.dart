@@ -21,7 +21,7 @@ class FAQPage extends StatelessWidget {
             itemBuilder: (context, index) {
               return ExpansionTile(
                 title: Text(
-                  "${index + 1}. " + controller.faqQuestions[index % 4].title,
+                  "${index + 1}. ${controller.faqQuestions[index % 4].title}",
                   style: const TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 16,

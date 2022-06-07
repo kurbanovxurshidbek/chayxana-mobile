@@ -141,8 +141,8 @@ class _DatePickerState extends State<DatePicker> {
           // get the date object based on the index position
           // if widget.startDate is null then use the initialDateValue
           DateTime date;
-          DateTime _date = widget.startDate.add(Duration(days: index));
-          date =  DateTime(_date.year, _date.month, _date.day);
+           date = widget.startDate.add(Duration(days: index));
+          date =  DateTime(date.year, date.month, date.day);
 
           bool isDeactivated = false;
 

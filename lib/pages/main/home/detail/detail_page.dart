@@ -15,7 +15,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<DetailController>(
       init: DetailController(),
-      builder: (_controller) {
+      builder: (controller) {
         return Scaffold(
           backgroundColor: AppColors.activeColor,
           body: Column(
@@ -26,16 +26,16 @@ class DetailPage extends StatelessWidget {
                   children: [
                     Row(children: [AnimatedContainer(
                         margin: EdgeInsets.only(
-                            left: _controller.marginOfContainer1,
-                            top: _controller.marginOfContainer2),
-                        height: _controller.hight,
-                        width: _controller.widthofContainer,
+                            left: controller.marginOfContainer1,
+                            top: controller.marginOfContainer2),
+                        height: controller.hight,
+                        width: controller.widthofContainer,
                         duration: const Duration(milliseconds: 100),
 
                         ///### Image Url
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(
-                              _controller.border.toDouble()),
+                              controller.border.toDouble()),
                           child: CachedNetworkImage(
                             imageUrl:
                             "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
@@ -54,14 +54,14 @@ class DetailPage extends StatelessWidget {
                             const Icon(Icons.error),
                           ),
                         )),],),
-                    !_controller.needStack?const Positioned(
+                    !controller.needStack?const Positioned(
 
                         top: 40,
                         left: 110,
                         child: Text("Chayxana name",style: TextStyle(fontSize: 26, fontFamily: "Poppons", fontWeight: FontWeight.w600),)):const SizedBox(),
                    ///CHAYXANA NAME ABOVE OF APPBar
                     Positioned(
-                      child: _controller.needStack
+                      child: controller.needStack
                           ? Container(
                               padding: const EdgeInsets.only(
                                   top: 30, right: 15, bottom: 15),
@@ -142,7 +142,7 @@ class DetailPage extends StatelessWidget {
                   ],
                 ),
           Expanded(child:  ListView(
-        controller: _controller.scrollController,
+        controller: controller.scrollController,
                   children: [
                     ///###chayxana name and rate
                     Container(
@@ -201,7 +201,7 @@ class DetailPage extends StatelessWidget {
                           const SizedBox(height: 15),
                            Text(
                             "city".tr,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 10),
@@ -222,13 +222,13 @@ class DetailPage extends StatelessWidget {
                           const SizedBox(height: 15),
                           Text(
                             "Description".tr,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 15),
                            Text(
                                "description_detail".tr,
-                              style: TextStyle(fontSize: 16)),
+                              style: const TextStyle(fontSize: 16)),
                           const SizedBox(height: 15),
                           const Divider(
                               color: AppColors.unSelectedTextColor, height: 1),
@@ -242,14 +242,14 @@ class DetailPage extends StatelessWidget {
                                 children: [
                                   Text(
                                     "working_mode".tr,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  SizedBox(height: 15),
+                                  const SizedBox(height: 15),
                                   Text(
                                     "working_hour".tr,
-                                    style: TextStyle(fontSize: 16),
+                                    style: const TextStyle(fontSize: 16),
                                   ),
                                 ],
                               ),
@@ -334,7 +334,7 @@ class DetailPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 200,),
+                    const SizedBox(height: 200,),
                   ],
                 ))
               ],

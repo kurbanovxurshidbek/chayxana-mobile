@@ -24,11 +24,11 @@ class MainButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12), color: color),
         child: MaterialButton(
           onPressed: onPressed,
+          minWidth: Get.width,
+          height: Get.height,
           child: Text(text,
               style:
                   const TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
-          minWidth: Get.width,
-          height: Get.height,
         ));
   }
 }

@@ -167,7 +167,7 @@ class DropDownItems<T> extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            ' ' + title.tr,
+            ' ${title.tr}',
             style: const TextStyle(
                 fontFamily: "Poppins",
                 fontSize: 24,
@@ -182,7 +182,7 @@ class DropDownItems<T> extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  ' ' + itemName.tr,
+                  ' ${itemName.tr}',
                   style: const TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 20,
@@ -231,6 +231,7 @@ class PopItem<T> extends StatelessWidget {
           return items
               .map((e) => PopupMenuItem(
                   onTap: () => selectedItem = e,
+                  value: e,
                   child: Row(
                     children: [
                       (otherItem.isNotEmpty)
@@ -239,8 +240,7 @@ class PopItem<T> extends StatelessWidget {
                           : Text(DateFormat('MMMM')
                               .format(DateTime(2022, int.parse(e.toString())))),
                     ],
-                  ),
-                  value: e))
+                  )))
               .toList();
         });
   }

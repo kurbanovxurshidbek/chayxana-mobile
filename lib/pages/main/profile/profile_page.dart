@@ -38,13 +38,13 @@ class ProfilePage extends StatelessWidget {
                      child: Container(
                        width: Get.width / 3.76,
                        height: Get.height / 8.14,
-                       child: InkWell(
-                         onTap: () {},
-                       ),
                        decoration: const BoxDecoration(
                            image: DecorationImage(
                              image: AssetImage(AppAssets.personIC),
                            )),
+                       child: InkWell(
+                         onTap: () {},
+                       ),
                      ),
                    ),
                    SizedBox(

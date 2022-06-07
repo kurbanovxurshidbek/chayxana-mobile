@@ -13,7 +13,7 @@ class FilterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<FilterController>(
         init: FilterController(),
-        builder: (_controller) {
+        builder: (controller) {
           return Scaffold(
               appBar: AppBar(
                 toolbarHeight: Get.height / 5,

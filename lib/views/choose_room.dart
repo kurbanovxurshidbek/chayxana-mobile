@@ -107,7 +107,7 @@ Widget chooseItem<T>({required SettingDetailController controller,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          ' ' + text.tr,
+          ' ${text.tr}',
           style: const TextStyle(
               fontFamily: "Poppins",
               fontSize: 24,

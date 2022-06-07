@@ -12,7 +12,7 @@ class NotificationController extends GetxController {
   void changeIndex(int index) {
     indexPage = index;
     pageController.animateToPage(
-        indexPage, duration: Duration(milliseconds: 500), curve: Curves.ease);
+        indexPage, duration: const Duration(milliseconds: 500), curve: Curves.ease);
     update();
   }
 }

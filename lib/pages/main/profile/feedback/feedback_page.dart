@@ -114,9 +114,9 @@ class FeedBackPage extends StatelessWidget {
                   ),
 
                   /// Email TextField
-                  Container(
+                  const SizedBox(
                     height: 52,
-                    child: const TextField(
+                    child: TextField(
                       maxLines: 1,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(left: 12),
@@ -137,7 +137,7 @@ class FeedBackPage extends StatelessWidget {
                   ),
 
                   /// Comment TextField
-                  Container(
+                  SizedBox(
                     height: 100,
                     width: Get.width,
                     child: const TextField(
