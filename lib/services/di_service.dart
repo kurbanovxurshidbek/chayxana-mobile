@@ -26,7 +26,8 @@ class DIService {
 
     // Controllers
     Get.lazyPut<SplashController>(() => SplashController(), fenix: true);
-    Get.lazyPut<SmsVerificationController>(() => SmsVerificationController(), fenix: true);
+    Get.lazyPut<SmsVerificationController>(() => SmsVerificationController(),
+        fenix: true);
     Get.lazyPut<MainController>(() => MainController(), fenix: true);
     Get.lazyPut<ProfileController>(() => ProfileController(), fenix: true);
     Get.lazyPut<RegionController>(() => RegionController(), fenix: true);
@@ -34,14 +35,16 @@ class DIService {
     Get.lazyPut<FAQController>(() => FAQController(), fenix: true);
     Get.lazyPut<AddCardController>(() => AddCardController(), fenix: true);
     Get.lazyPut<HomeController>(() => HomeController(), fenix: true);
-    Get.lazyPut<SettingDetailController>(() => SettingDetailController(), fenix: true);
+    Get.lazyPut<SettingDetailController>(() => SettingDetailController(),
+        fenix: true);
     Get.lazyPut<ResultController>(() => ResultController(), fenix: true);
     Get.lazyPut<GalleryController>(() => GalleryController(), fenix: true);
     Get.lazyPut<FilterController>(() => FilterController(), fenix: true);
     Get.lazyPut<DetailController>(() => DetailController(), fenix: true);
     Get.lazyPut<BookingController>(() => BookingController(), fenix: true);
     Get.lazyPut<HistoryController>(() => HistoryController(), fenix: true);
-    Get.lazyPut<NotificationController>(() => NotificationController(), fenix: true);
+    Get.lazyPut<NotificationController>(() => NotificationController(),
+        fenix: true);
     Get.lazyPut<LanguageController>(() => LanguageController(), fenix: true);
     Get.lazyPut<IntroController>(() => IntroController(), fenix: true);
     Get.lazyPut<AuthController>(() => AuthController(), fenix: true);

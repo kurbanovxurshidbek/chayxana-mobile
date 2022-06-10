@@ -20,7 +20,8 @@ class AppAssets {
   static const String historyIC = 'assets/icons/ic_history.svg';
   static const String homeIC = 'assets/icons/ic_home.svg';
   static const String locationIC = 'assets/icons/ic_location.svg';
-  static const String locationOutlineIC = 'assets/icons/ic_location_outline.svg';
+  static const String locationOutlineIC =
+      'assets/icons/ic_location_outline.svg';
   static const String pencilIC = 'assets/icons/ic_pencil.svg';
   static const String personIC = 'assets/icons/ic_person.svg';
   static const String phoneIC = 'assets/icons/ic_phone_iphone.svg';
@@ -30,9 +31,9 @@ class AppAssets {
   static const String warningIC = 'assets/icons/ic_warning.svg';
   static const String wifiIC = 'assets/icons/ic_wifi.svg';
   static const String notification = 'assets/icons/ic_notification.svg';
-  static const String intro1IM = 'assets/icons/im_intro1.png';
-  static const String intro2IM = 'assets/icons/im_intro2.png';
-  static const String intro3IM = 'assets/icons/im_intro3.png';
+  static const String intro1IM = 'assets/images/im_intro1.png';
+  static const String intro2IM = 'assets/images/im_intro2.png';
+  static const String intro3IM = 'assets/images/im_intro3.png';
   static const String galleryPhoto1IM = 'assets/icons/im_gallery_photo1.png';
   static const String galleryPhoto2IM = 'assets/icons/im_gallery_photo2.png';
   static const String galleryPhoto3IM = 'assets/icons/im_gallery_photo3.png';

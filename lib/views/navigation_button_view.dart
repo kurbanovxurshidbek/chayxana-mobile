@@ -2,6 +2,8 @@ import 'package:chayxana/services/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../pages/sms_verification/sms_verification_page.dart';
+
 class NavigationButton extends StatelessWidget {
   final String text;
 
@@ -17,7 +19,9 @@ class NavigationButton extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12), color: AppColors.mainColor),
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.off(SmsVerificationPage());
+        },
         child: Text(
           text.tr,
           style: const TextStyle(

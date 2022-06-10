@@ -6,13 +6,12 @@ import 'locals/ru_ru.dart';
 import 'locals/uz_uz.dart';
 
 class LangService extends Translations {
-  
   @override
   Map<String, Map<String, String>> get keys => {
-    'en_US': enUS, // lang/en_us.dart
-    'ru_RU': ruRU, // lang/ru_ru.dart
-    'uz_UZ': uzUZ, // lang/uz_uz.dart
-  };
+        'en_US': enUS, // lang/en_us.dart
+        'ru_RU': ruRU, // lang/ru_ru.dart
+        'uz_UZ': uzUZ, // lang/uz_uz.dart
+      };
 
   static const fallbackLocale = Locale('en', 'US');
 
@@ -34,14 +33,16 @@ class LangService extends Translations {
     const Locale('uz', 'UZ'),
   ];
 
-  static final locale = defLanguage(DBService.to.getData<String>(StorageKeys.language) ?? LangService.langs[0]);
-  
- static String defaultLanguage() {
+  static final locale = defLanguage(
+      DBService.to.getData<String>(StorageKeys.language) ??
+          LangService.langs[0]);
+
+  static String defaultLanguage() {
     final locale = Get.locale;
     var lan = locale.toString();
-    if(lan == "ru_RU") return langs[1];
-    if(lan == "uz_UZ") return langs[2];
-    return langs[0];
+    if (lan == "ru_RU") return langs[1];
+    if (lan == "uz_UZ") return langs[2];
+    return langs[1];
   }
 
   static Locale defLanguage(String code) {
@@ -51,15 +52,15 @@ class LangService extends Translations {
 
   static void changeLocale(String lang) {
     final locale = _getLocaleFromLanguage(lang);
-    if(locale != null) {
+    if (locale != null) {
       Get.updateLocale(locale);
       DBService.to.setData<String>(StorageKeys.language, lang);
     }
   }
 
- static Locale? _getLocaleFromLanguage(String lang) {
-    for(int i = 0; i < langs.length; i++) {
-      if(lang == langs[i]) return locales[i];
+  static Locale? _getLocaleFromLanguage(String lang) {
+    for (int i = 0; i < langs.length; i++) {
+      if (lang == langs[i]) return locales[i];
     }
     return Get.deviceLocale;
   }

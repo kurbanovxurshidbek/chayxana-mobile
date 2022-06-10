@@ -30,14 +30,17 @@ Future<void> main() async {
 
   await InitService.init();
 
+  LangService.changeLocale("ru");
 
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    // statusBarBrightness: Brightness.light,
-  ));
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
-    runApp(const MyApp());
-  },);
+      statusBarColor: Colors.transparent,
+      // statusBarBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.dark));
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
+    (_) {
+      runApp(const MyApp());
+    },
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -59,7 +62,7 @@ class MyApp extends StatelessWidget {
         LanguagePage.id: (context) => const LanguagePage(),
         IntroPage.id: (context) => const IntroPage(),
         MainPage.id: (context) => const MainPage(),
-        HomePage.id: (context) => const HomePage(),
+        HomePage.id: (context) => HomePage(),
         FilterPage.id: (context) => const FilterPage(),
         BookingPage.id: (context) => const BookingPage(),
         DetailPage.id: (context) => const DetailPage(),

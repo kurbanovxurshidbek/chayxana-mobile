@@ -10,17 +10,19 @@ class IntroController extends GetxController {
     initialPage: 0,
     keepPage: true,
   );
-  List <String> images = [
+  List<String> images = [
     AppAssets.intro1IM,
     AppAssets.intro2IM,
     AppAssets.intro3IM
   ];
+
   int page = 0;
 
   void directSmooth(int index) {
     page = index;
     update();
   }
+
   void goHome() => Get.off(() => const MainPage());
 
   void bottomTapped(int index) {

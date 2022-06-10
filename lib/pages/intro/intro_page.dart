@@ -2,7 +2,6 @@ import 'package:chayxana/services/constants/app_colors.dart';
 import 'package:chayxana/views/svg_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'intro_controller.dart';
 
 class IntroPage extends StatelessWidget {
@@ -52,33 +51,37 @@ class IntroPage extends StatelessWidget {
                   SizedBox(height: Get.height / 15),
 
                   ///### inter button
-                  Container(
-                    width: Get.width / 1.6,
-                    height: Get.height / 16,
-                    decoration: BoxDecoration(
-                        color: AppColors.activeColor,
-                        borderRadius: BorderRadius.circular(12)),
-                    child: MaterialButton(
-                      onPressed: () {
-                        controller.bottomTapped(controller.page);
-                      },
-                      child: const Center(
-                        child: Text(
-                          "Начать",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: AppColors.unSelectedTextColor),
-                        ),
-                      ),
-                    ),
-                  )
+                  interButton(controller, controller.page)
                 ]),
               )
             ],
           ),
         );
       },
+    );
+  }
+
+  Container interButton(IntroController controller, int pageIndex) {
+    return Container(
+      width: Get.width / 1.6,
+      height: Get.height / 16,
+      decoration: BoxDecoration(
+          color: AppColors.activeColor,
+          borderRadius: BorderRadius.circular(12)),
+      child: MaterialButton(
+        onPressed: () {
+          controller.bottomTapped(controller.page);
+        },
+        child: Center(
+          child: Text(
+            controller.page == 2 ? "button_enter".tr : "button_next".tr,
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: AppColors.unSelectedTextColor),
+          ),
+        ),
+      ),
     );
   }
 
@@ -93,23 +96,29 @@ class IntroPage extends StatelessWidget {
 
   Center pageViewForm(String text1, String text2, String image) {
     return Center(
-      child: Column(children: [
-        SizedBox(
+      child: Column(
+        children: [
+          SizedBox(
             height: Get.height / 8.2,
           ),
-          const Text(
-            " Боле 2 00 заведений \nс акциями и бонусами",
-            style: TextStyle(
+          Text(
+            text1,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
                 color: AppColors.activeColor,
                 fontSize: 24,
                 fontWeight: FontWeight.bold),
           ),
           SizedBox(height: Get.height / 9.8),
-          OpenSVG(
-            path: image,
+          Image.asset(
+            image,
             width: Get.width / 1.089,
             height: Get.height / 3.143,
           ),
+          // OpenSVG(
+          //   path: image,
+
+          // ),
           SizedBox(height: Get.height / 8),
           Text(
             text2,

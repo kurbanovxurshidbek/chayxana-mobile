@@ -16,7 +16,7 @@ class SmsVerificationPage extends StatelessWidget {
       init: SmsVerificationController(),
       builder: (controller) {
         return Scaffold(
-          backgroundColor: const Color(0xffEDEDED),
+          backgroundColor: AppColors.colorScafoldBack,
           body: ListView(
             children: [
               SizedBox(height: Get.height / 19),
@@ -59,14 +59,14 @@ class SmsVerificationPage extends StatelessWidget {
                               key: controller.formKey,
                               child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      vertical: 8.0, horizontal: 30),
+                                      vertical: 8.0, horizontal: 10),
                                   child: PinCodeTextField(
                                     appContext: context,
                                     pastedTextStyle: const TextStyle(
                                       color: AppColors.mainColor,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                    length: 5,
+                                    length: 6,
                                     obscureText: true,
                                     obscuringCharacter: '*',
                                     blinkWhenObscuring: true,
@@ -80,6 +80,8 @@ class SmsVerificationPage extends StatelessWidget {
                                     },
                                     pinTheme: PinTheme(
                                         shape: PinCodeFieldShape.box,
+                                        borderWidth: 0,
+                                        selectedFillColor: AppColors.mainColor,
                                         borderRadius:
                                             BorderRadius.circular(10.12),
                                         fieldHeight: Get.height / 13.57,
@@ -121,48 +123,6 @@ class SmsVerificationPage extends StatelessWidget {
                                     fontSize: 13, color: AppColors.borderColor),
                               ),
                             ),
-                            SizedBox(
-                              height: Get.height / 10,
-                            ),
-                            Container(
-                              height: Get.height / 14.93,
-                              width: Get.width / 1.07,
-                              margin: EdgeInsets.only(
-                                  left: Get.width / 23, right: Get.width / 23),
-                              decoration: BoxDecoration(
-                                color: AppColors.mainColor,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-
-                              /// Button for check pincode
-                              child: MaterialButton(
-                                onPressed: () {
-                                  controller.calculateTime();
-                                  controller.formKey.currentState!.validate();
-                                  // conditions for validating
-                                  if (controller.currentText.length != 6 ||
-                                      controller.currentText !=
-                                          controller.keyOfVerifaction) {
-                                    Get.snackbar(
-                                        "pincode", "notug'ri parol kiritildi");
-                                  } else {}
-                                },
-                                child: Center(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: const [
-                                      Text(
-                                        "Подтверждать",
-                                        style: TextStyle(
-                                            color: AppColors.activeColor,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
                           ],
                         ),
                       ),
@@ -171,6 +131,52 @@ class SmsVerificationPage extends StatelessWidget {
                 ),
               )
             ],
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: Container(
+            height: Get.height / 14.93,
+            width: Get.width / 1.07,
+            margin:
+                EdgeInsets.only(left: Get.width / 23, right: Get.width / 23),
+            decoration: BoxDecoration(
+              color: AppColors.mainColor,
+              borderRadius: BorderRadius.circular(12),
+            ),
+
+            /// Button for check pincode
+            child: MaterialButton(
+              onPressed: () {
+                controller.calculateTime();
+                controller.formKey.currentState!.validate();
+                // conditions for validating
+                if (controller.currentText.length != 6 ||
+                    controller.currentText != controller.keyOfVerifaction) {
+                  Get.snackbar("pincode", "notug'ri parol kiritildi");
+                } else {}
+              },
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.check_circle_outline,
+                      color: AppColors.activeColor,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      "Подтверждать",
+                      style: TextStyle(
+                          color: AppColors.activeColor,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         );
       },

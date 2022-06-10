@@ -5,7 +5,7 @@ class AppColors {
   static const Color mainColor = Color(0xFF17B700);
 
   /// ![](https://via.placeholder.com/15/17B700/000000?text=+)  <i>17B700</i>
-  static const Color introBackground =  Color(0xff40C244);
+  static const Color introBackground = Color(0xff40C244);
 
   /// ![](https://via.placeholder.com/15/FFFFFF/000000?text=+)  <i>FFFFFF</i>
   static const Color activeColor = Color(0xFFFFFFFF);
@@ -24,7 +24,6 @@ class AppColors {
 
   /// ![](https://via.placeholder.com/15/4F4F4F/000000?text=+)  <i>4F4F4F</i>
   static const Color grey = Color(0xFF9E9E9E);
-
 
   /// ![](https://via.placeholder.com/15/848484/000000?text=+)  <i>848484</i>
   static const Color greyText = Color(0xFF848484);
@@ -51,13 +50,22 @@ class AppColors {
   static const Color backgroundColor = Color(0xFFE5E5E5);
 
   /// ![](https://via.placeholder.com/15/939297/000000?text=+)  <i>F9F9F9</i>
-  static const Color dashboardRowButtonIsNotPressed =  Color(0xFFF9F9F9);
+  static const Color dashboardRowButtonIsNotPressed = Color(0xFFF9F9F9);
 
   static const Color iconofDetail = Color(0xFFFFFFFF);
 
   static const Color iconofService = Color(0xFF000000);
+
   static const List<Color> gradientColor = [
     Color(0xFFC23484),
     Color(0xFFFCAF45)
   ];
+
+  static List<Color> selectionOverlayGradient = [
+    Colors.black.withOpacity(0.1),
+    Colors.black.withOpacity(0.7),
+    Colors.black.withOpacity(0.1)
+  ];
+
+  static Color colorScafoldBack = Color(0xffEDEDED);
 }

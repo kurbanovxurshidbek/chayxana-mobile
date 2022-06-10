@@ -24,7 +24,11 @@ class SplashPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  OpenSVG(path: AppAssets.logoIC, width: Get.width * 0.39),
+                  OpenSVG(
+                    path: AppAssets.logoIC,
+                    width: Get.width * 0.39,
+                    isGradient: true,
+                  ),
                   SizedBox(
                       height: Get.height * .06,
                       width: Get.width * .39,
@@ -40,6 +44,4 @@ class SplashPage extends StatelessWidget {
           );
         });
   }
-
-
 }

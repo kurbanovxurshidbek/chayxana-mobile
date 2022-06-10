@@ -23,8 +23,9 @@ class MainPage extends StatelessWidget {
           body: Stack(
             children: [
               PageView(
+                physics: NeverScrollableScrollPhysics(),
                 controller: controller.pageController,
-                children: const [HomePage(), HistoryPage(), ProfilePage()],
+                children: [HomePage(), HistoryPage(), ProfilePage()],
                 onPageChanged: (index) => controller.onPageChange(index),
               ),
               Positioned(
@@ -74,7 +75,8 @@ class MainPage extends StatelessWidget {
       color: controller.selectedMenu == name
           ? AppColors.mainColor
           : AppColors.activeColor,
-      child: OpenSVG( path: name,
+      child: OpenSVG(
+          path: name,
           width: 26,
           height: 26,
           isGradient: false,
