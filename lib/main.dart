@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
       title: 'Chayxana Mobile',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      home: HistoryPage(),
+      home: DetailPage(),
       // Localization
       translations: LangService(),
       locale: LangService.locale,
@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
         HomePage.id: (context) => HomePage(),
         FilterPage.id: (context) => const FilterPage(),
         BookingPage.id: (context) => const BookingPage(),
-        DetailPage.id: (context) => const DetailPage(),
+        DetailPage.id: (context) =>  DetailPage(),
         GalleryPage.id: (context) => const GalleryPage(),
         ResultPage.id: (context) => const ResultPage(),
         SettingDetailPage.id: (context) => const SettingDetailPage(),

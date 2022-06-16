@@ -1,370 +1,438 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chayxana/pages/main/home/detail/detail_controller.dart';
 import 'package:chayxana/services/constants/app_assets.dart';
-import 'package:chayxana/services/constants/app_colors.dart';
-import 'package:chayxana/views/svg_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:get/route_manager.dart';
+import 'package:yandex_mapkit/yandex_mapkit.dart';
+
+import '../../../photos_page/photos_page.dart';
 
 class DetailPage extends StatelessWidget {
-  static const String id = "/detail_page";
-
-  const DetailPage({Key? key}) : super(key: key);
-
+  static const String id= "/detail_page";
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DetailController>(
-      init: DetailController(),
-      builder: (controller) {
-        return Scaffold(
-          backgroundColor: AppColors.activeColor,
-          body: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ///### Main image of detail Page and animation
-                Stack(
-                  children: [
-                    Row(children: [AnimatedContainer(
-                        margin: EdgeInsets.only(
-                            left: controller.marginOfContainer1,
-                            top: controller.marginOfContainer2),
-                        height: controller.hight,
-                        width: controller.widthofContainer,
-                        duration: const Duration(milliseconds: 100),
+    return Scaffold(
+      body: GetBuilder<DetailController>(
+        init: DetailController(),
+        builder: (context) {
+          return ListView(
+            children: [
+              ///Abdulazim
+              // #header
+              SizedBox(
+                height: 279,
+                child: GridTile(
+                  header: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.all(10),
 
-                        ///### Image Url
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(
-                              controller.border.toDouble()),
-                          child: CachedNetworkImage(
-                            imageUrl:
-                            "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-                            imageBuilder: (context, imageProvider) => Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: imageProvider,
-                                    fit: BoxFit.cover,
-                                    colorFilter: const ColorFilter.mode(
-                                        AppColors.red, BlendMode.colorBurn)),
-                              ),
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.grey[700],
                             ),
-                            placeholder: (context, url) =>
-                            const CircularProgressIndicator(),
-                            errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
+                            child: Image.asset(
+                              AppAssets.icCancel,
+                              width: 22.67,
+                              height: 22.67,
+                            ),
                           ),
-                        )),],),
-                    !controller.needStack?const Positioned(
-
-                        top: 40,
-                        left: 110,
-                        child: Text("Chayxana name",style: TextStyle(fontSize: 26, fontFamily: "Poppons", fontWeight: FontWeight.w600),)):const SizedBox(),
-                   ///CHAYXANA NAME ABOVE OF APPBar
-                    Positioned(
-                      child: controller.needStack
-                          ? Container(
-                              padding: const EdgeInsets.only(
-                                  top: 30, right: 15, bottom: 15),
-                              height: Get.height / 3.21,
-                              width: Get.width,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Center(
-                                          child: IconButton(
-                                            /// X Icon
-                                        icon: const Icon(
-                                          Icons.clear,
-                                          color: AppColors.activeColor,
-                                          size: 40,
-                                        ),
-                                        onPressed: () {},
-                                      )),
-                                      /// locagon button
-                                      CircleAvatar(
-                                        radius: 24,
-                                        backgroundColor:
-                                            const Color(0x7400ccff),
-                                        child: IconButton(
-                                          onPressed: () {},
-                                          icon: const OpenSVG(path: "assets/icons/ic_favorite.svg",color: AppColors.iconofDetail,),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  /// Its s for pucture number button
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      const SizedBox(),
-                                      /// for border
-                                      Container(
-                                        height: Get.height / 22.4,
-                                        width: Get.width / 5,
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                              color: Colors.white, width: 1),
-                                          borderRadius:
-                                              BorderRadius.circular(18),
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            IconButton(
-                                              onPressed: () {},
-                                              icon: const OpenSVG(path: "assets/icons/ic_camera.svg",)
-                                            ),
-                                            const Text(
-                                              "14",
-                                              style: TextStyle(
-                                                  fontSize: 19,
-                                                  color: AppColors.activeColor),
-                                            )
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            )
-                          : const SizedBox(),
-                    )
-                  ],
-                ),
-          Expanded(child:  ListView(
-        controller: controller.scrollController,
-                  children: [
-                    ///###chayxana name and rate
-                    Container(
-                      width: Get.width,
-                      decoration: const BoxDecoration(
-                        color: AppColors.dashboardRowButtonIsNotPressed,
+                        ),
                       ),
-                      padding: const EdgeInsets.all(15),
-                      child: Row(
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                         margin: EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.grey[700],
+                          ),
+                          child: Image.asset("assets/images/favourite.png"),
+                        ),
+                      ),
+                    ],
+                  ),
+                  child: Image.asset(
+                    AppAssets.sliverAppBarImage,
+                    height: 279,
+                    fit: BoxFit.cover,
+                  ),
+                  footer: Column(
+                    children: [
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            "chayxanaName",
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                          const Expanded(
+                            child: SizedBox(),
                           ),
-                          Container(
-                            height: Get.height / 22.4,
-                            width: Get.width / 5,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(18),
-                            ),
-                            child: Row(
-                              children: const [
-                                Icon(
-                                  Icons.star,
-                                  color: AppColors.starColor,
-                                ),
-                                Text(
-                                  "8.2",
-                                  style: TextStyle(
-                                      fontSize: 19,
-                                      color: AppColors.unSelectedTextColor),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-
-                    ///### desciription
-                    Container(
-                      padding:
-                          const EdgeInsets.only(top: 15, left: 15, right: 15),
-                      width: Get.width,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                           Text(    "location_of_city".tr,
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-
-                          ),
-                          const SizedBox(height: 15),
-                           Text(
-                            "city".tr,
-                            style: const TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 10),
-                          Text("region_locatin".tr,
-                              style: const TextStyle(fontSize: 16)),
-                          const SizedBox(height: 15),
-                          Container(
-                            height: Get.height / 11.2,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: AppColors.greyText,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          const Divider(
-                              color: AppColors.unSelectedTextColor, height: 1),
-                          const SizedBox(height: 15),
-                          Text(
-                            "Description".tr,
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 15),
-                           Text(
-                               "description_detail".tr,
-                              style: const TextStyle(fontSize: 16)),
-                          const SizedBox(height: 15),
-                          const Divider(
-                              color: AppColors.unSelectedTextColor, height: 1),
-                          const SizedBox(height: 15),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "working_mode".tr,
-                                    style: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  const SizedBox(height: 15),
-                                  Text(
-                                    "working_hour".tr,
-                                    style: const TextStyle(fontSize: 16),
-                                  ),
-                                ],
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(
+                                const PhotosPage(),
+                              );
+                            },
+                            child: Container(
+                              width: 90,
+                              height: 45,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.white),
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              Container(
-                                height: Get.height / 15.44,
-                                width: Get.width / 2.5,
-                                decoration: BoxDecoration(
-                                  color:
-                                      AppColors.dashboardRowButtonIsNotPressed,
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                child: Center(
-                                  child: TextButton(
-                                    onPressed: () {},
-                                    child:  Text(
-                                      'more'.tr,
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                          color: AppColors.unSelectedTextColor),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Image.asset(AppAssets.camera),
+                                  const Text(
+                                    '14',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 19,
                                     ),
                                   ),
-                                ),
-                              )
-                            ],
-                          ),
-                          const SizedBox(height: 15),
-                          const Divider(
-                              color: AppColors.unSelectedTextColor, height: 1),
-                          const SizedBox(height: 15),
-                          const Text(
-                            "Information",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 15),
-                          Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
-                            children: [
-                              buttonOfServices(
-                                  AppAssets.phoneIC, "call".tr),
-                              buttonOfServices(
-                                  AppAssets.connectObjectIC, "route".tr),
-                            ],
-                          ),
-                          const SizedBox(height: 15),
-                          const Divider(
-                            color: AppColors.unSelectedTextColor,
-                            height: 1,
-                          ),
-
-                          ///### Buttons of servise
-                          Column(
-                            children: [
-                              const SizedBox(height: 15),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  buttonOfServices(
-                                      AppAssets.tableIC, "verandas".tr),
-                                  buttonOfServices(
-                                      AppAssets.carIC, "parking".tr),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  buttonOfServices(
-                                      AppAssets.tvIC, "tv".tr),
-                                  buttonOfServices(
-                                      AppAssets.wifiIC, "wifi".tr),
-                                ],
-                              ),
-                            ],
-                          )
+                            ),
+                          ),
+                          const SizedBox(width: 25),
                         ],
                       ),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.only(right: 19, left: 15),
+                height: 55,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Expanded(
+                      child: SizedBox(),
                     ),
-                    const SizedBox(height: 200,),
+                    Row(
+                      children: [
+                        Image.asset(
+                          AppAssets.icStar,
+                          width: 19,
+                          height: 19,
+                        ),
+                        const SizedBox(width: 7),
+                        const Text('8.2'),
+                      ],
+                    ),
                   ],
-                ))
-              ],
-            ),
-        );
-      },
+                ),
+              ),
+
+              ///Jamshid Aka
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //#text Адресс
+                  const Padding(
+                    padding: EdgeInsets.only(left: 15.0),
+                    child: Text(
+                      "Адресс",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+
+                  //#text Ташкент
+                  const Padding(
+                    padding: EdgeInsets.only(left: 15.0, top: 10),
+                    child: Text(
+                      "Ташкент",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+
+                  //#text Юнусабадский район, Амир Темур
+                  const Padding(
+                    padding: EdgeInsets.only(left: 15.0, top: 2),
+                    child: Text(
+                      "Юнусабадский район, Амир Темур",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  //#container for map
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0, right: 15),
+                    child: Container(
+                      height: 80,
+                      width: double.infinity,
+                     child: YandexMap(),
+                    ),
+                  ),
+
+                  //#divider line
+                  const Padding(
+                    padding: EdgeInsets.only(top: 20.0, left: 15, right: 15),
+                    child: const Divider(
+                      thickness: 1,
+                      color: Colors.grey,
+                    ),
+                  ),
+
+                  //#text title Описание
+                  const Padding(
+                    padding: EdgeInsets.only(left: 15.0, top: 20),
+                    child: Text(
+                      "Описание",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+
+                  //#text Описание content
+                  const Padding(
+                    padding: EdgeInsets.only(top: 12.0, right: 15, left: 15),
+                    child: SizedBox(
+                      height: 95,
+                      width: double.infinity,
+                      child: Text(
+                        "Ресторан в любовно отреставрированном павильоне «Шелководство» "
+                        "на ВДНХ работает с мая 2016 года. В заведении два зала, летом к ним добавляются "
+                        "две большие веранды; вокруг парк, а совсем неподалеку Зеленый театр.",
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  //#divider line
+                  const Padding(
+                    padding: EdgeInsets.only(top: 20.0, left: 15, right: 15),
+                    child: Divider(
+                      thickness: 1,
+                      color: Color(0xFFB3B3B3),
+                    ),
+                  ),
+
+                  //#
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 20.0, left: 15, right: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              //#text Режим работы
+                              Text(
+                                "Режим работы",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w700),
+                              ),
+
+                              //#text Режим работы
+                              Text(
+                                "Сегодня 10:00 - 23:00",
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          ),
+                        ), //#button Подробнее
+                        Container(
+                          height: 58,
+                          width: 165,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          clipBehavior: Clip.hardEdge,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                primary: const Color(0xffF5F5F5)),
+                            onPressed: null,
+                            child: const Text(
+                              "Подробнее",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    child: const Divider(
+                      thickness: 1,
+                      color: Colors.grey,
+                    ),
+                  )
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(left: 15),
+                    child: const Text(
+                      "Информатция",
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 17,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 28,
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 15,
+                      ),
+                      makeOptions(
+                          "assets/images/img_tel.png", "Pozvanit", true),
+                      SizedBox(width: 25),
+                      makeOptions("assets/images/img.png", "Marshurt", true),
+                      SizedBox(
+                        width: 15,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  const Divider(
+                    thickness: 1,
+                    endIndent: 15,
+                    indent: 15,
+                    color: Colors.grey,
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 15,
+                      ),
+                      makeOptions("assets/images/choyxona_wifi.png", "Vayfay"),
+                      SizedBox(width: 25),
+                      makeOptions("assets/images/ch_i.png", "Verandi"),
+                      SizedBox(
+                        width: 15,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 15,
+                      ),
+                      makeOptions("assets/images/ch_car.png", "Parkovka"),
+                      SizedBox(width: 25),
+                      makeOptions("assets/images/cho_tv.png", "Televizor"),
+                      SizedBox(
+                        width: 15,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 160,
+                  ),
+                  Container(
+                    child: Center(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.white, elevation: 0),
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 60,
+                          width: 380,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFF17B700),
+                              borderRadius: BorderRadius.circular(12)),
+                          child: const Text(
+                            "Дальше",
+                            style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                ],
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 
-  Container buttonOfServices(String imageIcon, String textOfIcon) {
-    return Container(
-      height: 45,
-      width: Get.width / 2.30,
-      decoration: BoxDecoration(
+  Widget makeOptions(
+    String path,
+    String txt, [
+    bool? isGreen,
+  ]) {
+    return Expanded(
+      child: Material(
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        color: AppColors.dashboardRowButtonIsNotPressed,
-      ),
-        child: Row(
-          children: [
-            OpenSVG(path: imageIcon,color: AppColors.iconofService,width: 40,height: 40,),
-            SizedBox(
-              width: Get.width / 20,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          splashColor: Colors.grey[100],
+          onTap: () {},
+          child: Container(
+            height: 65,
+            decoration: BoxDecoration(
+              // color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
             ),
-            Text(
-              textOfIcon.tr,
-              style: const TextStyle(fontSize: 18,color: AppColors.iconofService),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Image.asset(path,
+                      color: isGreen == true ? Colors.green : Colors.black),
+                ),
+                Expanded(
+                  child: Text(txt),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
-
+      ),
     );
   }
 }

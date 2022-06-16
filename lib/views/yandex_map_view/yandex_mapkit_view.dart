@@ -10,64 +10,68 @@ import 'package:location/location.dart';
 class YandexMapView extends StatelessWidget {
   HomeController controller;
   YandexMapView({Key? key, required this.controller}) : super(key: key);
-  final MapObjectId placemarkId = MapObjectId('normal_icon_placemark');
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MyYandexMapController>(
-        init: MyYandexMapController(),
-        builder: (myYandexMapController) {
-          return YandexMap(
-            tiltGesturesEnabled: true,
-            zoomGesturesEnabled: true,
-            rotateGesturesEnabled: true,
-            scrollGesturesEnabled: true,
-            modelsEnabled: true,
-            nightModeEnabled: false,
-            indoorEnabled: false,
-            liteModeEnabled: false,
-            mapObjects: myYandexMapController.mapObjects,
-            // onMapTap: (Point point) {
-            //   marker(
-            //       latitude: point.latitude.toDouble(),
-            //       longitude: point.longitude.toDouble());
-            // },
-            onMapCreated: (YandexMapController yandexMapController) async {
-              myYandexMapController.add(PlacemarkMapObject(
-                  mapId: placemarkId,
-                  point: Point(latitude: 41.326636, longitude: 69.2283122),
-                  onTap: (PlacemarkMapObject self, Point point) =>
-                      print('Tapped me at $point'),
-                  opacity: 0.7,
-                  direction: 90,
-                  isDraggable: true,
-                  onDragStart: (_) => print('Drag start'),
-                  onDrag: (_, Point point) => print('Drag at point $point'),
-                  onDragEnd: (_) => print('Drag end'),
-                  icon: PlacemarkIcon.single(PlacemarkIconStyle(
-                      image: BitmapDescriptor.fromAssetImage(
-                          'assets/icons/ic_gift.png'),
-                      rotationType: RotationType.rotate))));
-              controller.yandexMapController = yandexMapController;
-              Position position = await controller.determinePosition();
+      init: MyYandexMapController(),
+      builder: (myYandexMapController) {
+        return YandexMap(
+          tiltGesturesEnabled: true,
+          zoomGesturesEnabled: true,
+          rotateGesturesEnabled: true,
+          scrollGesturesEnabled: true,
+          modelsEnabled: true,
+          nightModeEnabled: false,
+          indoorEnabled: false,
+          mapObjects: myYandexMapController.mapObjects,
+          // onMapTap: (Point point) {
+          //   marker(
+          //       latitude: point.latitude.toDouble(),
+          //       longitude: point.longitude.toDouble());
+          // },
+          onMapCreated: (YandexMapController yandexMapController) async {
+            final boundingBox = BoundingBox(
+                northEast: myYandexMapController.startPlacemark.point,
+                southWest: myYandexMapController.endPlacemark.point);
 
-              print(position.toString() +
-                  "++++++++++++++_________________+++++++++++++++++++++++++=");
+            await yandexMapController
+                .moveCamera(CameraUpdate.newBounds(boundingBox));
+            await yandexMapController.moveCamera(CameraUpdate.zoomOut());
+            // myYandexMapController.add(PlacemarkMapObject(
+            //     mapId: placemarkId,
+            //     point: Point(latitude: 41.326636, longitude: 69.2283122),
+            //     onTap: (PlacemarkMapObject self, Point point) =>
+            //         print('Tapped me at $point'),
+            //     opacity: 0.7,
+            //     direction: 90,
+            //     isDraggable: true,
+            //     onDragStart: (_) => print('Drag start'),
+            //     onDrag: (_, Point point) => print('Drag at point $point'),
+            //     onDragEnd: (_) => print('Drag end'),
+            //     icon: PlacemarkIcon.single(PlacemarkIconStyle(
+            //         image: BitmapDescriptor.fromAssetImage(
+            //             'assets/icons/ic_gift.png'),
+            //         rotationType: RotationType.rotate))));
+            // controller.yandexMapController = yandexMapController;
+            // Position position = await controller.determinePosition();
 
-              final cameraPosition =
-                  await controller.yandexMapController.getCameraPosition().then(
-                (value) async {
-                  await controller.yandexMapController.moveCamera(
-                      CameraUpdate.newCameraPosition(CameraPosition(
-                          target: Point(
-                              latitude: position.latitude,
-                              longitude: position.longitude),
-                          zoom: 15.0)));
-                },
-              );
-            },
-          );
-        });
+            // print(position.toString() +
+            //     "++++++++++++++_________________+++++++++++++++++++++++++=");
+
+            // final cameraPosition =
+            //     await controller.yandexMapController.getCameraPosition().then(
+            //   (value) async {
+            //     await controller.yandexMapController.moveCamera(
+            //         CameraUpdate.newCameraPosition(CameraPosition(
+            //             target: Point(
+            //                 latitude: position.latitude,
+            //                 longitude: position.longitude),
+            //             zoom: 15.0)));
+          },
+        );
+      },
+    );
   }
 
   // marker({latitude, longitude}) {

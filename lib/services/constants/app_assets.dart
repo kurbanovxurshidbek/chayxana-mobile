@@ -54,4 +54,12 @@ class AppAssets {
   static const String location = 'assets/icons/ic_location.png';
   static const String message = 'assets/icons/ic_message.png';
   static const String total = 'assets/icons/ic_total.png';
+
+  static String get sliverAppBarImage => 'assets/images/sliver_page.jpg';
+  static String get camera => 'assets/images/camera.png';
+  static String get kvadrat => "assets/images/kvadrat.png";
+  static String get icCancel => "assets/images/ic_cancel.png";
+  static String get icRight => "assets/images/ic_right.jpg";
+  static String get icFavourite => "assets/images/favourite.png";
+  static String get icStar => "assets/images/ic_star.png";
 }
