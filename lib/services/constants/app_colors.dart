@@ -68,4 +68,10 @@ class AppColors {
   ];
 
   static Color colorScafoldBack = Color(0xffEDEDED);
+  static Color colorHomeBottomViewBack = Color(0xffF7F7F7);
+  static Color colorShayxanaItemDistance = Colors.grey.shade600;
+  static Color colorShayxanaItemGlass = Color(0xff9A5FC1);
+  static Color colorShayxanaItemTotal = Color(0xff6595FB);
+  static Color colorShayxanaItemGift = Color(0xffFBBD69);
+  static Color colorShayxanaItemCalendar = Color(0xff313131);
 }

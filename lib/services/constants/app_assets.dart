@@ -47,4 +47,11 @@ class AppAssets {
   static const String galleryPhoto11IM = 'assets/icons/im_gallery_photo11.png';
   static const String galleryPhoto12IM = 'assets/icons/im_gallery_photo12.png';
   static const String galleryPhoto13IM = 'assets/icons/im_gallery_photo13.png';
+  static const String calendar = 'assets/icons/ic_calendar.png';
+  static const String filter = 'assets/icons/ic_filter.png';
+  static const String gift = 'assets/icons/ic_gift.png';
+  static const String glass = 'assets/icons/ic_glass.png';
+  static const String location = 'assets/icons/ic_location.png';
+  static const String message = 'assets/icons/ic_message.png';
+  static const String total = 'assets/icons/ic_total.png';
 }

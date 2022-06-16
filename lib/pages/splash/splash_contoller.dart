@@ -16,7 +16,7 @@ class SplashController extends GetxController {
 
   void openNextPage() {
     Timer(const Duration(seconds: 2), () {
-      Get.off(() => LanguagePage());
+      Get.off(() => HomePage());
     });
   }
 

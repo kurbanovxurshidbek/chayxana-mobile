@@ -11,6 +11,7 @@ AppBar appbar(
     required bool leading,
     bool? actions}) {
   return AppBar(
+    backgroundColor: AppColors.activeColor,
     leadingWidth: 30,
     elevation: 0,
     leading: leading
@@ -52,13 +53,14 @@ AppBar appbar(
                     shape: BoxShape.circle,
                   ),
                   child: Stack(
-                    alignment: const Alignment(3.4, -2.3),
-                    children: const [
-                      Icon(
-                        Icons.notifications,
+                    alignment: const Alignment(0.6, -0.7),
+                    children: [
+                      IconButton(
                         color: Colors.black,
+                        icon: const Icon(Icons.notifications),
+                        onPressed: () {  },
                       ),
-                      CircleAvatar(
+                      const CircleAvatar(
                         backgroundColor: Color(0xFFF44336),
                         radius: 7,
                       )

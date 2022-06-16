@@ -14,6 +14,10 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   yandex_mapkit: ^3.0.0
+  lottie: ^1.3.0
+  geolocator: ^8.2.1
+  location: ^4.4.0
+  http: ^0.13.4
  
 
   # state management
@@ -30,6 +34,7 @@ dependencies:
   intl:
   intl_phone_field:
   cached_network_image:
+
 
 
   # use google map
@@ -56,6 +61,7 @@ flutter:
     - assets/icons/
     - assets/fonts/inter/
     - assets/fonts/poppins/
+    - assets/lotties/
 
   fonts:
     #kerak bo'lmagan fontlar olib tashlanadi
