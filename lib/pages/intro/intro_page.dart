@@ -6,8 +6,9 @@ import 'intro_controller.dart';
 
 class IntroPage extends StatelessWidget {
   static const String id = "/intro_page";
-
   const IntroPage({Key? key}) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {

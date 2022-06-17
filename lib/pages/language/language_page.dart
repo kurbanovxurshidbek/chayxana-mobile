@@ -1,7 +1,6 @@
 import 'package:chayxana/pages/language/language_controller.dart';
 import 'package:chayxana/services/const_service.dart';
 import 'package:chayxana/services/constants/app_colors.dart';
-import 'package:chayxana/services/theme_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -41,7 +40,7 @@ class LanguagePage extends StatelessWidget {
                 )
               ],
             ),
-            backgroundColor: ThemeService.colorBackGroundWhite,
+            backgroundColor: AppColors.colorScafoldBack,
             body: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
