@@ -12,13 +12,13 @@ dependencies:
 
   # custom user interface
   cupertino_icons: ^1.0.2
-  intl:
+  intl: ^0.17.0
 
   # network image
-  cached_network_image:
+  cached_network_image: ^3.2.1
 
   # sms code field
-  intl_phone_field:
+  intl_phone_field: ^3.1.0
   pin_code_fields: ^7.3.0
 
   # animation
