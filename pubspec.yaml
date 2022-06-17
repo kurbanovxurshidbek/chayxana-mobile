@@ -10,15 +10,19 @@ dependencies:
   flutter:
     sdk: flutter
 
-
+  # custom user interface
   cupertino_icons: ^1.0.2
+  intl:
 
-  yandex_mapkit: ^3.0.0
+  # network image
+  cached_network_image:
+
+  # sms code field
+  intl_phone_field:
+  pin_code_fields: ^7.3.0
+
+  # animation
   lottie: ^1.3.0
-  geolocator: ^8.2.1
-  location: ^4.4.0
-  http: ^0.13.4
- 
 
   # state management
   get: ^4.6.1
@@ -31,19 +35,13 @@ dependencies:
 
   # connecting network
   dio: ^4.0.6
-  intl:
-  intl_phone_field:
-  cached_network_image:
+  http: ^0.13.4
 
+  # use yandex map
+  yandex_mapkit: ^3.0.0
+  geolocator: ^8.2.1
+  location: ^4.4.0
 
-
-  # use google map
-  # google_maps_flutter: ^2.1.4
-
-  # use verification
-  pin_code_fields: ^7.3.0
-
-  #geolocator
 
 dev_dependencies:
   flutter_test:
